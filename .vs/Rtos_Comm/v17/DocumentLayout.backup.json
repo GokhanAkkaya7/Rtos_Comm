@@ -1,0 +1,243 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|c:\\users\\gokhanakk\\source\\repos\\rtos_comm\\rtos_comm\\application\\forms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\rtos_comm\\application\\json\\messageformats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\json\\messageformats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\rtos_comm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\rtos_comm\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Rtos_Comm||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\rtos_comm\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\rtos_comm\\application\\pipeconnection\\pipeclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\pipeconnection\\pipeclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\rtos_comm\\application\\driver\\adc_driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\driver\\adc_driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\rtos_comm\\application\\configuration\\configuration_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\configuration\\configuration_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\rtos_comm\\application\\driver\\can_driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\driver\\can_driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\rtos_comm\\application\\json\\json_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\json\\json_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\rtos_comm\\application\\xmlparser\\xmlparser_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\xmlparser\\xmlparser_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\rtos_comm\\application\\driver\\irq_driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\driver\\irq_driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 179,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
+              "ViewState": "AgIAAJYBAAAAAAAAAAAwwKUBAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T10:17:46.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "ViewState": "AQIAABcBAAAAAAAAAAAjwCYBAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2025-05-15T05:48:39.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\Program.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\Program.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\Program.cs",
+              "RelativeToolTip": "Rtos_Comm\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBJwBUAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T12:05:57.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Rtos_Comm",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\Rtos_Comm.csproj",
+              "RelativeDocumentMoniker": "Rtos_Comm\\Rtos_Comm.csproj",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\Rtos_Comm.csproj",
+              "RelativeToolTip": "Rtos_Comm\\Rtos_Comm.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-10T08:36:55.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\App.config",
+              "RelativeDocumentMoniker": "Rtos_Comm\\App.config",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\App.config",
+              "RelativeToolTip": "Rtos_Comm\\App.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-07-10T07:58:49.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PipeClient.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAADwvxUAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T05:46:42.698Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "adc_driver.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\Driver\\adc_driver.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Driver\\adc_driver.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\Driver\\adc_driver.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\Driver\\adc_driver.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAArwEQAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T06:10:05.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "packages.config",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\packages.config",
+              "RelativeDocumentMoniker": "Rtos_Comm\\packages.config",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\packages.config",
+              "RelativeToolTip": "Rtos_Comm\\packages.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-07-10T08:17:24.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MessageFormats.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\JSON\\MessageFormats.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\JSON\\MessageFormats.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\JSON\\MessageFormats.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\JSON\\MessageFormats.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAASwBwAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T08:12:50.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "can_driver.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\Driver\\can_driver.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Driver\\can_driver.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\Driver\\can_driver.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\Driver\\can_driver.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAACBjwAwAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T08:25:25.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "irq_driver.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\Driver\\irq_driver.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Driver\\irq_driver.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\Driver\\irq_driver.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\Driver\\irq_driver.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T10:32:47.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "XMLParser_class.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\XMLParser\\XMLParser_class.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\XMLParser\\XMLParser_class.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\XMLParser\\XMLParser_class.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\XMLParser\\XMLParser_class.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAqwAwAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T12:22:25.303Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Configuration_class.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\Configuration\\Configuration_class.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Configuration\\Configuration_class.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\Configuration\\Configuration_class.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\Configuration\\Configuration_class.cs",
+              "ViewState": "AQIAAEkAAAAAAAAAAIBpwGIAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T12:36:24.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Json_Class.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\JSON\\Json_Class.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\JSON\\Json_Class.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\source\\repos\\Rtos_Comm\\Rtos_Comm\\application\\JSON\\Json_Class.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\JSON\\Json_Class.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA4AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T11:50:48.884Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
