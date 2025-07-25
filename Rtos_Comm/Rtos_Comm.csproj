@@ -87,6 +87,7 @@
     <Compile Include="application\Configuration\Configuration_class.cs" />
     <Compile Include="application\Driver\adc_driver.cs" />
     <Compile Include="application\Driver\can_driver.cs" />
+    <Compile Include="application\Driver\gpt_driver.cs" />
     <Compile Include="application\Driver\irq_driver.cs" />
     <Compile Include="application\Forms\MainForm.cs">
       <SubType>Form</SubType>

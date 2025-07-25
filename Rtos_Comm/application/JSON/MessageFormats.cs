@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rtos_Comm.application.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,5 +58,13 @@ namespace Rtos_Comm.application.JSON
 
         public int dlc { get; set; }
         public  ushort[] can_buffer { get; set; }
+    }
+
+    public class GPTData
+    {
+        public int channel_count { get; set; }
+        public int[] Channel { get; set; }
+        public int[] Period { get; set; }
+        public GptUnit[] Unit { get; set; }
     }
 }

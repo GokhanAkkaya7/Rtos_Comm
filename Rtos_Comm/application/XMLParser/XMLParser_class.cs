@@ -1,4 +1,5 @@
-﻿using System;
+﻿// File: Rtos_Comm/application/XMLParser/XML_Parser.cs
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -12,17 +13,31 @@ namespace Rtos_Comm.application.XMLParser
     {
         public List<IDriverConfig> AllConfigs { get; } = new List<IDriverConfig>();
 
-        private Dictionary<string, Type> moduleTypeMap = new Dictionary<string, Type>
+        // Bu harita sizin istediğiniz gibi basit kalacak.
+        private readonly Dictionary<string, Type> moduleTypeMap = new Dictionary<string, Type>
         {
-            // NEW DATA: add related driver class here.
             { "adc", typeof(ADC_Config_Class) },
-            { "irq", typeof(IRQ_Config_Class) }
+            { "irq", typeof(IRQ_Config_Class) },
+            { "gpt", typeof(GPT_Config_Class) }
         };
 
-        private Dictionary<string, IDriverConfig> configMap = new Dictionary<string, IDriverConfig>();
+        // Bu harita, ADC gibi birleşik yapılar için kullanılmaya devam edecek.
+        private readonly Dictionary<string, IDriverConfig> configMap = new Dictionary<string, IDriverConfig>();
+
+        // *** YENİ KURAL LİSTESİ ***
+        // Bu listedeki anahtarlar ("gpt" gibi), her bulunduğunda yeni bir nesne oluşturulmasını sağlar.
+        private readonly List<string> multiInstanceKeys = new List<string>
+        {
+            "gpt",
+            "irq" // Eğer birden fazla IRQ olursa, onların da ayrı işlenmesi için eklenebilir.
+        };
 
         public void ParseConfigurationXml(string path)
         {
+            // Her çalıştırmadan önce tüm listeleri ve haritaları temizle
+            AllConfigs.Clear();
+            configMap.Clear();
+
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
 
@@ -35,26 +50,37 @@ namespace Rtos_Comm.application.XMLParser
                 if (matchedKey == null)
                     continue;
 
-                // get the same ground framework and driver like
-                // "module.framework.sf_adc_periodic_on_sf_adc_periodic.1591552232"  
-                // "module.driver.adc_on_adc.841273083" as "adc"
                 string commonId = matchedKey;
-
                 IDriverConfig configInstance;
-                if (!configMap.TryGetValue(commonId, out configInstance))
+
+                // *** ANA MANTIK DEĞİŞİKLİĞİ ***
+                if (multiInstanceKeys.Contains(commonId))
                 {
+                    // Eğer anahtar "gpt" gibi çoklu bir türe aitse:
+                    // HER ZAMAN yeni bir nesne oluştur.
                     configInstance = (IDriverConfig)Activator.CreateInstance(moduleTypeMap[commonId]);
-                    configMap[commonId] = configInstance;
+                    // Ve bu yeni nesneyi doğrudan ana listeye ekle.
                     AllConfigs.Add(configInstance);
                 }
+                else
+                {
+                    // Eğer anahtar "adc" gibi birleşik bir türe aitse:
+                    // SİZİN ORİJİNAL KODUNUZDAKİ GİBİ DAVRAN.
+                    if (!configMap.TryGetValue(commonId, out configInstance))
+                    {
+                        configInstance = (IDriverConfig)Activator.CreateInstance(moduleTypeMap[commonId]);
+                        configMap[commonId] = configInstance;
+                        AllConfigs.Add(configInstance);
+                    }
+                }
 
-                configInstance.Id = moduleId; 
+                // İster yeni oluşturulsun, ister haritadan bulunsun, nesneyi doldur.
+                configInstance.Id = string.IsNullOrEmpty(configInstance.Id) ? moduleId : configInstance.Id + ";" + moduleId;
 
-                foreach (XmlNode property in module.ChildNodes)
+                foreach (XmlNode property in module.SelectNodes("property"))
                 {
                     string propId = property.Attributes["id"]?.Value ?? "";
                     string propValue = property.Attributes["value"]?.Value ?? "";
-
                     configInstance.SetProperty(propId, propValue);
                 }
             }

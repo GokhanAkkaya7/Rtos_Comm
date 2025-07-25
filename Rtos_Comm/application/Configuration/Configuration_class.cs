@@ -9,6 +9,15 @@ using System.Threading.Tasks;
 
 namespace Rtos_Comm.application.Configuration
 {
+    public enum GptUnit
+    {
+        Unknown_unit,
+        Seconds,
+        Milliseconds,
+        Microseconds,
+        Hertz
+    }
+
     [AttributeUsage(AttributeTargets.Property)]
     public class XmlMapAttribute : Attribute
     {
@@ -123,6 +132,77 @@ namespace Rtos_Comm.application.Configuration
                             var match = Regex.Match(propValue, @"\d+");
                             if (match.Success && int.TryParse(match.Value, out int extractedInt))
                                 prop.SetValue(this, extractedInt);
+                        }
+                    }
+                    else if (prop.PropertyType == typeof(string))
+                    {
+                        prop.SetValue(this, propValue.Split('.').Last());
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
+    public class GPT_Config_Class : IDriverConfig
+    {
+        public string Id { get; set; }
+
+        [XmlMap("module.driver.timer.name")]
+        public string Name { get; set; }
+
+        [XmlMap("module.driver.timer.channel")]
+        public int Channel { get; set; }
+
+        [XmlMap("module.driver.timer.period")]
+        public int Period { get; set; }
+
+        public GptUnit Unit { get; set; }
+
+        public void SetProperty(string propId, string propValue)
+        {
+            if (propId == "module.driver.timer.unit")
+            {
+                switch (propValue)
+                {
+                    case "module.driver.timer.unit.unit_period_sec":
+                        this.Unit = GptUnit.Seconds;
+                        break;
+                    case "module.driver.timer.unit.unit_period_msec":
+                        this.Unit = GptUnit.Milliseconds;
+                        break;
+                    case "module.driver.timer.unit.unit_period_usec":
+                        this.Unit = GptUnit.Microseconds;
+                        break;
+                    case "module.driver.timer.unit.unit_period_Hertz":
+                        this.Unit = GptUnit.Hertz;
+                        break;
+                    default:
+                        this.Unit = GptUnit.Unknown_unit;
+                        break;
+                }
+                return; 
+            }
+
+            var props = this.GetType().GetProperties();
+            foreach (var prop in props)
+            {
+                var attr = prop.GetCustomAttribute<XmlMapAttribute>();
+                if (attr != null && attr.XmlId == propId)
+                {
+                    if (prop.PropertyType == typeof(int))
+                    {
+                        if (int.TryParse(propValue, out int val))
+                        {
+                            prop.SetValue(this, val);
+                        }
+                        else
+                        {
+                            var match = Regex.Match(propValue, @"\d+");
+                            if (match.Success && int.TryParse(match.Value, out int extractedInt))
+                            {
+                                prop.SetValue(this, extractedInt);
+                            }
                         }
                     }
                     else if (prop.PropertyType == typeof(string))

@@ -30,6 +30,7 @@ namespace Rtos_Comm
 
         private AdcData _adc_data;
         private IrqData _irq_data;
+        private GPTData _gpt_data;
 
         private string Pipe_Name = "SimplePipe";
         private List<Message_Format> message_buffer = new List<Message_Format>();
@@ -38,7 +39,8 @@ namespace Rtos_Comm
         private bool b_release_oneshot_can_message = false;
         private bool b_release_priodic_can_message = false;
         private bool b_release_irq_message = false;
-        private bool button_toggle = true;
+        private bool b_button_toggle = true;
+        private bool b_gpt_set = false;
 
         private int DEFAULT_SEND_INTERVAL_IN_MS = 1000;
 
@@ -60,6 +62,7 @@ namespace Rtos_Comm
             _irq_data = new IrqData();
             _irq_data.channel_list = new List<ushort>(); // Initialize to prevent null reference.
             _can_Simulator = new CAN_Simulator();
+            _gpt_data = new GPTData();
 
             _xml_parser = new XML_Parser();
         }
@@ -101,6 +104,11 @@ namespace Rtos_Comm
         {
             message_buffer.Clear();
 
+            if (b_gpt_set)
+            {
+                list_filler("gpt", _gpt_data);
+                b_gpt_set = false;
+            }
             // --- ADC Data Preparation (Isolated Block) ---
             try
             {
@@ -336,8 +344,8 @@ namespace Rtos_Comm
 
         private void autoStart_Click(object sender, EventArgs e)
         {
-            button_toggle = !button_toggle;
-            if (button_toggle)
+            b_button_toggle = !b_button_toggle;
+            if (b_button_toggle)
             {
                 autoStart.Text = "Auto Start";
                 b_release_priodic_can_message = false;
@@ -392,6 +400,21 @@ namespace Rtos_Comm
                         IRQSelectCombo.Items.Clear();
                         IRQSelectCombo.Items.Add(default_string);
                         IRQSelectCombo.Items.Add(allIrqs[0].Used_Irq_Channels);
+
+                        var allgpts = _xml_parser.GetConfigs<GPT_Config_Class>();
+                        _gpt_data.channel_count = allgpts.Count;
+
+                        _gpt_data.Channel = new int[_gpt_data.channel_count];
+                        _gpt_data.Period = new int[_gpt_data.channel_count];
+                        _gpt_data.Unit = new GptUnit[_gpt_data.channel_count];
+
+                        for (int gpt_index = 0; gpt_index < _gpt_data.channel_count; gpt_index++)
+                        {
+                            _gpt_data.Channel[gpt_index] = allgpts[gpt_index].Channel;
+                            _gpt_data.Period[gpt_index] = allgpts[gpt_index].Period;
+                            _gpt_data.Unit[gpt_index] = allgpts[gpt_index].Unit;
+                            b_gpt_set = true;
+                        }
                     }
                     catch (Exception ex)
                     {

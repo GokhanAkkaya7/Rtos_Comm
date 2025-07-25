@@ -31,3 +31,36 @@ C:\Users\GOKHANAKK\source\repos\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.csproj.C
 C:\Users\GOKHANAKK\source\repos\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.exe
 C:\Users\GOKHANAKK\source\repos\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.pdb
 C:\Users\GOKHANAKK\source\repos\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.csproj.Up2Date
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\Rtos_Comm.exe.config
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\Rtos_Comm.exe
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\Rtos_Comm.pdb
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Buffers.dll
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.IO.Pipelines.dll
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Memory.dll
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Text.Json.dll
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.ValueTuple.dll
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Buffers.xml
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.IO.Pipelines.xml
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Memory.xml
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Text.Json.xml
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\bin\Debug\System.ValueTuple.xml
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.csproj.AssemblyReference.cache
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.csproj.SuggestedBindingRedirects.cache
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.exe.config
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.MainForm.resources
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.Properties.Resources.resources
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.csproj.GenerateResource.cache
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.csproj.CoreCompileInputs.cache
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.csproj.Up2Date
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.exe
+C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\Rtos_Comm\Rtos_Comm\obj\Debug\Rtos_Comm.pdb
