@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 
 namespace Rtos_Comm.application.Configuration
 {
+
+    public enum app_io_level_t
+    {
+        APP_IO_LEVEL_LOW = 0, APP_IO_LEVEL_HIGH
+    }
+ 
     public enum GptUnit
     {
         Unknown_unit,

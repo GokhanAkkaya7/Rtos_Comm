@@ -120,9 +120,9 @@ namespace Rtos_Comm
         #region Windows Form Designer generated code
 
         private void InitializeComponent()
-        {           
+        {
             #region UI Code (Unchanged)
-            
+
             this.components = new System.ComponentModel.Container();
             this.SuspendLayout();
             this.Text = "RTOS Communication Panel";
@@ -130,32 +130,32 @@ namespace Rtos_Comm
             this.MinimumSize = new Size(950, 600);
             this.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             this.BackColor = Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            
+
             var mainTlp = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 1, RowCount = 2, Padding = new Padding(10) };
             mainTlp.RowStyles.Add(new RowStyle(SizeType.AutoSize)); mainTlp.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             this.Controls.Add(mainTlp);
-            
+
             var groupBoxConnection = new GroupBox { Text = "Connection", Dock = DockStyle.Fill, Font = new Font("Segoe UI", 10F, FontStyle.Bold), Padding = new Padding(20), AutoSize = true };
             mainTlp.Controls.Add(groupBoxConnection, 0, 0);
-            
+
             var connectionTlp = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 4, RowCount = 1, AutoSize = true };
             connectionTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F)); connectionTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F)); connectionTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F)); connectionTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
-            connectionTlp.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));          
+            connectionTlp.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             groupBoxConnection.Controls.Add(connectionTlp);
             this.btnLoadXml = CreateStyledRoundButton("Browse Configuration...", Color.FromArgb(108, 117, 125), Color.White); this.btnLoadXml.Click += this.btnLoadXml_Click; this.btnLoadXml.Dock = DockStyle.Fill;
             this.lblXmlStatus = new Label { Text = "No configuration file loaded.", ForeColor = Color.DimGray, Font = new Font("Segoe UI", 11F, FontStyle.Italic), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft, Padding = new Padding(10, 0, 0, 0) };
             this.Connect_Button = CreateStyledRoundButton("Connect", Color.FromArgb(40, 167, 69), Color.White); this.Connect_Button.Click += this.Connect_Button_Click; this.Connect_Button.Dock = DockStyle.Fill;
             this.Disconnect_Button = CreateStyledRoundButton("Disconnect", Color.FromArgb(220, 53, 69), Color.White); this.Disconnect_Button.Click += this.Disconnect_Button_Click; this.Disconnect_Button.Dock = DockStyle.Fill;
             connectionTlp.Controls.Add(this.btnLoadXml, 0, 0); connectionTlp.Controls.Add(this.lblXmlStatus, 1, 0); connectionTlp.Controls.Add(this.Connect_Button, 2, 0); connectionTlp.Controls.Add(this.Disconnect_Button, 3, 0);
-            
+
             var contentTlp = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 2, RowCount = 1 };
             contentTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 220F)); contentTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             mainTlp.Controls.Add(contentTlp, 0, 1);
-            
+
             var leftPaneTlp = new TableLayoutPanel { Dock = DockStyle.Fill, RowCount = 2, ColumnCount = 1, Padding = new Padding(0, 5, 0, 0) };
             leftPaneTlp.RowStyles.Add(new RowStyle(SizeType.Percent, 70F)); leftPaneTlp.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             contentTlp.Controls.Add(leftPaneTlp, 0, 0);
-            
+
             var groupBoxActions = new GroupBox { Text = "Protocols & Utilities", Dock = DockStyle.Fill, Font = new Font("Segoe UI", 10F, FontStyle.Bold) };
 
             var actionButtonsTlp = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 1, RowCount = 5, Padding = new Padding(8) };
@@ -171,7 +171,7 @@ namespace Rtos_Comm
             actionButtonsTlp.Controls.Add(this.CANButton, 0, 0); actionButtonsTlp.Controls.Add(this.SPIButton, 0, 1); actionButtonsTlp.Controls.Add(this.I2CButton, 0, 2); actionButtonsTlp.Controls.Add(this.FlashButton, 0, 3); actionButtonsTlp.Controls.Add(this.MonitorButton, 0, 4);
 
             var groupBoxSettings = new GroupBox { Text = "Settings", Dock = DockStyle.Fill, Font = new Font("Segoe UI", 10F, FontStyle.Bold), Margin = new Padding(0, 5, 0, 0) };
-            leftPaneTlp.Controls.Add(groupBoxActions, 0, 0); leftPaneTlp.Controls.Add(groupBoxSettings, 0, 1);     
+            leftPaneTlp.Controls.Add(groupBoxActions, 0, 0); leftPaneTlp.Controls.Add(groupBoxSettings, 0, 1);
 
             var settingsTlp = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 3, RowCount = 3, Padding = new Padding(8) };
 
@@ -179,9 +179,9 @@ namespace Rtos_Comm
             settingsTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             settingsTlp.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
 
-            settingsTlp.RowStyles.Add(new RowStyle(SizeType.Percent, 50F)); 
-            settingsTlp.RowStyles.Add(new RowStyle(SizeType.AutoSize));      
-            settingsTlp.RowStyles.Add(new RowStyle(SizeType.Percent, 50F)); 
+            settingsTlp.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            settingsTlp.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            settingsTlp.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
 
             groupBoxSettings.Controls.Add(settingsTlp);
 
@@ -200,7 +200,7 @@ namespace Rtos_Comm
 
             var groupBoxData = new GroupBox { Text = "System Data Monitor", Dock = DockStyle.Fill, Font = new Font("Segoe UI", 10F, FontStyle.Bold), Padding = new Padding(5), Margin = new Padding(5, 5, 0, 0) };
             contentTlp.Controls.Add(groupBoxData, 1, 0);
-            
+
             var dataTlp = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 4, RowCount = 6 };
             dataTlp.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize)); dataTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F)); dataTlp.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize)); dataTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
             for (int i = 0; i < 5; i++) dataTlp.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
@@ -208,31 +208,88 @@ namespace Rtos_Comm
             groupBoxData.Controls.Add(dataTlp);
             Func<string, Label> createDataLabel = (text) => new Label { Text = text, Font = new Font("Segoe UI", 10F, FontStyle.Bold), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft, AutoSize = true };
             this.ADCMinBox = new TextBox { Text = "Min", ForeColor = Color.Gray, Dock = DockStyle.Fill }; this.ADCMaxBox = new TextBox { Text = "Max", ForeColor = Color.Gray, Dock = DockStyle.Fill };
-            
+
+            /*********************************** ADC ***********************************************/
+
             var adcMinMaxPanel = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 2, RowCount = 1, Padding = new Padding(0, 3, 0, 3) };
             adcMinMaxPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F)); adcMinMaxPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             adcMinMaxPanel.Controls.Add(this.ADCMinBox, 0, 0); adcMinMaxPanel.Controls.Add(this.ADCMaxBox, 1, 0);
             this.ADCButton = CreateSetDataButton(); this.ADCButton.Click += this.ADCButton_Click;
-            this.ADCSelectCombo = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList, Dock = DockStyle.Fill, Font = new Font("Segoe UI", 10F, FontStyle.Italic), Margin = new Padding(3) };        
+            this.ADCSelectCombo = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList, Dock = DockStyle.Fill, Font = new Font("Segoe UI", 10F, FontStyle.Italic), Margin = new Padding(3) };
             dataTlp.Controls.Add(createDataLabel("ADC Value:"), 0, 0); dataTlp.Controls.Add(adcMinMaxPanel, 1, 0); dataTlp.Controls.Add(this.ADCButton, 2, 0); dataTlp.Controls.Add(this.ADCSelectCombo, 3, 0);
-            
-            this.IOBox = new TextBox { Dock = DockStyle.Fill, Anchor = AnchorStyles.None, Height = 26 }; this.IOButton = CreateSetDataButton(); this.IOButton.Click += this.IOButton_Click;
-            this.IOSelectCombo = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList, Dock = DockStyle.Fill, Font = new Font("Segoe UI", 10F, FontStyle.Italic), Margin = new Padding(3) }; this.IOSelectCombo.Items.AddRange(new object[] { "PIN_A0", "PIN_A1", "PIN_B0", "PIN_B1", "PIN_C7" }); this.IOSelectCombo.SelectedIndex = 0;
-            dataTlp.Controls.Add(createDataLabel("IO Value:"), 0, 1); dataTlp.Controls.Add(this.IOBox, 1, 1); dataTlp.Controls.Add(this.IOButton, 2, 1); dataTlp.Controls.Add(this.IOSelectCombo, 3, 1);
-            
+
+            /***************************************************************************************/
+
+            /************************************ IO ***********************************************/
+            this.IOButton = CreateSetDataButton(); this.IOButton.Text = "TOGGLE"; this.IOButton.Click += this.IOButton_Click;
+            var ioSelectionPanel = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 4,
+                RowCount = 1,
+                Padding = new Padding(0),
+                Margin = new Padding(0)
+            };
+            ioSelectionPanel.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+            ioSelectionPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            ioSelectionPanel.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+            ioSelectionPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+
+            this.numIoPort = new NumericUpDown
+            {
+                Minimum = 0,
+                Maximum = 11,
+                Dock = DockStyle.Fill,
+                Font = new Font("Segoe UI", 10F),
+                Margin = new Padding(3, 6, 8, 6)
+            };
+
+            this.numIoPin = new NumericUpDown
+            {
+                Minimum = 0,
+                Maximum = 15,
+                Dock = DockStyle.Fill,
+                Font = new Font("Segoe UI", 10F),
+                Margin = new Padding(0, 6, 3, 6),
+                TextAlign = HorizontalAlignment.Center
+            };
+
+            ioSelectionPanel.Controls.Add(new Label { Text = "Port", AutoSize = true, Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleRight, Font = new Font("Segoe UI", 10F) }, 0, 0);
+            ioSelectionPanel.Controls.Add(this.numIoPort, 1, 0);
+            ioSelectionPanel.Controls.Add(new Label { Text = "Pin", AutoSize = true, Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleRight, Font = new Font("Segoe UI", 10F), Margin = new Padding(10, 0, 0, 0) }, 2, 0);
+            ioSelectionPanel.Controls.Add(this.numIoPin, 3, 0);
+
+            dataTlp.Controls.Add(createDataLabel("IO Pin:"), 0, 1);
+            dataTlp.Controls.Add(new Panel(), 1, 1);
+            dataTlp.Controls.Add(this.IOButton, 2, 1); 
+            dataTlp.Controls.Add(ioSelectionPanel, 3, 1);
+
+            /***************************************************************************************/
+
+            /*********************************** RTC ***********************************************/
+
             this.RTCBox = new TextBox { Dock = DockStyle.Fill, Anchor = AnchorStyles.None, Height = 26 }; this.RTCButton = CreateSetDataButton(); this.RTCButton.Click += this.RTCButton_Click;
             dataTlp.Controls.Add(createDataLabel("RTC Time:"), 0, 2); dataTlp.Controls.Add(this.RTCBox, 1, 2); dataTlp.Controls.Add(this.RTCButton, 2, 2);
-            
+
+            /***************************************************************************************/
+
+            /*********************************** IRQ ***********************************************/
+
             this.IRQBox = new TextBox { Dock = DockStyle.Fill, Anchor = AnchorStyles.None, Height = 26 }; this.IRQButton = CreateSetDataButton(); this.IRQButton.Click += this.IRQButton_Click;
             this.IRQSelectCombo = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList, Dock = DockStyle.Fill, Font = new Font("Segoe UI", 10F, FontStyle.Italic), Margin = new Padding(3) };
             this.IRQSelectCombo.SelectedIndexChanged += IRQSelectCombo_SelectedIndexChanged;
             dataTlp.Controls.Add(createDataLabel("IRQ Count:"), 0, 3); dataTlp.Controls.Add(this.IRQBox, 1, 3); dataTlp.Controls.Add(this.IRQButton, 2, 3); dataTlp.Controls.Add(this.IRQSelectCombo, 3, 3);
-            
+
+            /***************************************************************************************/
+
+            /*********************************** GPT ***********************************************/
             this.GPTBox = new TextBox { Dock = DockStyle.Fill, Anchor = AnchorStyles.None, Height = 26 }; this.GPTButton = CreateSetDataButton(); this.GPTButton.Click += this.GPTButton_Click;
             this.GPTSelectCombo = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList, Dock = DockStyle.Fill, Font = new Font("Segoe UI", 10F, FontStyle.Italic), Margin = new Padding(3) };
             dataTlp.Controls.Add(createDataLabel("GPT Counter:"), 0, 4); dataTlp.Controls.Add(this.GPTBox, 1, 4); dataTlp.Controls.Add(this.GPTButton, 2, 4); dataTlp.Controls.Add(this.GPTSelectCombo, 3, 4);
             this.ResumeLayout(false);
             #endregion
+
+            /***************************************************************************************/
         }
 
         #endregion
@@ -241,11 +298,13 @@ namespace Rtos_Comm
 
         // UI Controls
         private TextBox ADCMinBox, ADCMaxBox, IOBox, RTCBox, IRQBox, GPTBox;
-        private ComboBox ADCSelectCombo, IOSelectCombo, IRQSelectCombo, GPTSelectCombo, SendInterval;
+        private ComboBox ADCSelectCombo, IRQSelectCombo, GPTSelectCombo, SendInterval;
         private RoundButton ADCButton, IOButton, RTCButton, IRQButton, GPTButton;
         private RoundButton Connect_Button, Disconnect_Button, btnLoadXml;
         private RoundButton CANButton, SPIButton, I2CButton, FlashButton, MonitorButton;
         private Label lblXmlStatus;
+        private NumericUpDown numIoPort;
+        private NumericUpDown numIoPin;
 
         // Dynamic CAN Window Controls
         private TextBox textBoxId, textBoxDlc;
@@ -327,7 +386,7 @@ namespace Rtos_Comm
                     FormBorderStyle = FormBorderStyle.Sizable,
                     Controls = { new Label { Text = "Flash Utility Window - Content to be implemented.", Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleCenter } }
                 };
-                flashForm.Show(this); 
+                flashForm.Show(this);
             }
             else
             {

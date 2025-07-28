@@ -20,6 +20,7 @@ namespace Rtos_Comm
         private string default_string = "Channels (Default)";
         private Int32 adc_min_value = 0;
         private Int32 adc_max_value = 0;
+        private UInt16 previous_pin_number = UInt16.MaxValue;
 
         private Json_Class _json_Class;
         private PipeClient _pipeClient;
@@ -31,6 +32,7 @@ namespace Rtos_Comm
         private AdcData _adc_data;
         private IrqData _irq_data;
         private GPTData _gpt_data;
+        private IoData _io_data;
 
         private string Pipe_Name = "SimplePipe";
         private List<Message_Format> message_buffer = new List<Message_Format>();
@@ -41,6 +43,8 @@ namespace Rtos_Comm
         private bool b_release_irq_message = false;
         private bool b_button_toggle = true;
         private bool b_gpt_set = false;
+        private bool b_io_toggle = false;
+        private bool b_release_io_message = false;
 
         private int DEFAULT_SEND_INTERVAL_IN_MS = 1000;
 
@@ -63,6 +67,7 @@ namespace Rtos_Comm
             _irq_data.channel_list = new List<ushort>(); // Initialize to prevent null reference.
             _can_Simulator = new CAN_Simulator();
             _gpt_data = new GPTData();
+            _io_data = new IoData();
 
             _xml_parser = new XML_Parser();
         }
@@ -190,6 +195,26 @@ namespace Rtos_Comm
                     b_release_irq_message = false;
                 }
             }
+
+            if (b_release_io_message)
+            {
+                try
+                {
+                    if (_io_data != null)
+                    {
+                        list_filler("io", _io_data);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"IO Data Processor Error: {ex.Message}");
+                }
+                finally
+                {
+                    b_release_io_message = false;
+                }              
+            }
+
         }
 
         // --- Producer and Consumer Tasks ---
@@ -357,7 +382,31 @@ namespace Rtos_Comm
             }
         }
 
-        private void IOButton_Click(object sender, EventArgs e) { }
+        private void IOButton_Click(object sender, EventArgs e) 
+        {
+            int port = (int)this.numIoPort.Value;
+            int pin = (int)this.numIoPin.Value;
+
+            // pin value is (port_number * 16) + pin_number since there 16 pins every port in s3a6.
+            ushort pinValue = (ushort)((port * 16) + pin);
+            _io_data.pin = pinValue;
+
+            if (previous_pin_number == pinValue)
+            {
+                if (b_io_toggle)
+                    _io_data.state = app_io_level_t.APP_IO_LEVEL_HIGH;
+                else
+                    _io_data.state = app_io_level_t.APP_IO_LEVEL_LOW;
+
+                b_io_toggle = !b_io_toggle;
+            }
+            else
+                _io_data.state = app_io_level_t.APP_IO_LEVEL_HIGH;
+
+            b_release_io_message = true;
+
+            previous_pin_number = pinValue;
+        }
         private void ADCButton_Click(object sender, EventArgs e)
         {
             try

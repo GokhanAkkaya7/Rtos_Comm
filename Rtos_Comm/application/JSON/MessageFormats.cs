@@ -24,8 +24,8 @@ namespace Rtos_Comm.application.JSON
     }
     public class IoData
     {
-        public int pin { get; set; }
-        public bool state { get; set; }
+        public UInt16 pin { get; set; }
+        public app_io_level_t state { get; set; }
     }
     public class IrqData
     {
