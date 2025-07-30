@@ -315,6 +315,7 @@ namespace Rtos_Comm
         // Modeless Form References
         private Form canForm;
         private Form flashForm;
+        private Form spiFlashForm;
         private Form monitorForm;
 
         #endregion
@@ -378,14 +379,10 @@ namespace Rtos_Comm
         {
             if (flashForm == null || flashForm.IsDisposed)
             {
-                flashForm = new Form
-                {
-                    Text = "Flash Utility",
-                    Size = new Size(600, 400),
-                    StartPosition = FormStartPosition.CenterParent,
-                    FormBorderStyle = FormBorderStyle.Sizable,
-                    Controls = { new Label { Text = "Flash Utility Window - Content to be implemented.", Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleCenter } }
-                };
+                // TODO GA: Make relative path.
+                string dataFlashPath = @"C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\e_bike_simulator\threadx\ports\win32\vs_2019\example_build\Battery_Simulator\dataflash.bin";
+
+                flashForm = new FlashViewerForm("Internal Data Flash Utility", dataFlashPath);
                 flashForm.Show(this);
             }
             else
@@ -491,7 +488,18 @@ namespace Rtos_Comm
 
         private void SPIButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("SPI configuration window logic should be implemented here.", "SPI Protocol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (spiFlashForm == null || spiFlashForm.IsDisposed)
+            {
+               // TODO GA: Make relative path.
+                string spiFlashPath = @"C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\e_bike_simulator\threadx\ports\win32\vs_2019\example_build\Battery_Simulator\external_flash.bin";
+
+                spiFlashForm = new FlashViewerForm("External SPI Flash Utility (MX25)", spiFlashPath);
+                spiFlashForm.Show(this);
+            }
+            else
+            {
+                spiFlashForm.Activate();
+            }
         }
 
         private void I2CButton_Click(object sender, EventArgs e)
