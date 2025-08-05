@@ -67,4 +67,15 @@ namespace Rtos_Comm.application.JSON
         public int[] Period { get; set; }
         public GptUnit[] Unit { get; set; }
     }
+
+    public class RTCData
+    {
+        public rtc_event_t rtc_event { get; set; }
+        public int second { get; set; }
+        public int minute { get; set; }
+        public int hour { get; set; }
+        public int day { get; set; }
+        public int month { get; set; }
+        public int year { get; set; }
+    }
 }

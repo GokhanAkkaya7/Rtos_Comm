@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Rtos_Comm.application.Configuration;
+using Rtos_Comm.application.JSON;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -268,8 +270,48 @@ namespace Rtos_Comm
 
             /*********************************** RTC ***********************************************/
 
-            this.RTCBox = new TextBox { Dock = DockStyle.Fill, Anchor = AnchorStyles.None, Height = 26 }; this.RTCButton = CreateSetDataButton(); this.RTCButton.Click += this.RTCButton_Click;
-            dataTlp.Controls.Add(createDataLabel("RTC Time:"), 0, 2); dataTlp.Controls.Add(this.RTCBox, 1, 2); dataTlp.Controls.Add(this.RTCButton, 2, 2);
+            this.lblRtcTime = new Label
+            {
+                Text = "--:--:--",
+                Font = new Font("Segoe UI", 10F, FontStyle.Regular),
+                ForeColor = Color.FromArgb(52, 58, 64),
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleLeft,
+                Padding = new Padding(3, 0, 0, 0)
+            };
+
+            this.btnRtcSet = CreateSetDataButton();
+            this.btnRtcSet.Click += this.btnRtcSet_Click;
+
+            this.btnRtcGet = CreateSetDataButton();
+            this.btnRtcGet.Text = "GET";
+            this.btnRtcGet.Click += this.btnRtcGet_Click;
+
+            this.btnRtcSync = CreateSetDataButton();
+            this.btnRtcSync.Text = "Sync PC";
+            this.btnRtcSync.Click += this.btnRtcSync_Click;
+
+            var rtcControlPanel = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 4, // 4 sütunlu kalacak
+                RowCount = 1,
+                Padding = new Padding(0)
+            };
+
+            rtcControlPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            rtcControlPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));  
+            rtcControlPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));  
+            rtcControlPanel.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));      
+
+            rtcControlPanel.Controls.Add(this.btnRtcSet, 1, 0);
+            rtcControlPanel.Controls.Add(this.btnRtcGet, 2, 0);
+            rtcControlPanel.Controls.Add(this.btnRtcSync, 3, 0);
+
+            dataTlp.Controls.Add(createDataLabel("RTC Time:"), 0, 2);
+            dataTlp.Controls.Add(this.lblRtcTime, 1, 2);
+            dataTlp.SetColumnSpan(rtcControlPanel, 2); 
+            dataTlp.Controls.Add(rtcControlPanel, 2, 2); 
 
             /***************************************************************************************/
 
@@ -297,14 +339,18 @@ namespace Rtos_Comm
         #region Component and Control Declarations
 
         // UI Controls
-        private TextBox ADCMinBox, ADCMaxBox, IOBox, RTCBox, IRQBox, GPTBox;
+        private TextBox ADCMinBox, ADCMaxBox, IOBox, IRQBox, GPTBox;
         private ComboBox ADCSelectCombo, IRQSelectCombo, GPTSelectCombo, SendInterval;
-        private RoundButton ADCButton, IOButton, RTCButton, IRQButton, GPTButton;
+        private RoundButton ADCButton, IOButton, IRQButton, GPTButton;
         private RoundButton Connect_Button, Disconnect_Button, btnLoadXml;
         private RoundButton CANButton, SPIButton, I2CButton, FlashButton, MonitorButton;
         private Label lblXmlStatus;
         private NumericUpDown numIoPort;
         private NumericUpDown numIoPin;
+
+        // RTC Controls
+        private Label lblRtcTime;
+        private RoundButton btnRtcSet, btnRtcGet, btnRtcSync;
 
         // Dynamic CAN Window Controls
         private TextBox textBoxId, textBoxDlc;
@@ -372,22 +418,32 @@ namespace Rtos_Comm
         #endregion
 
         #region Event Handlers
-
         private void GPTButton_Click(object sender, EventArgs e) { MessageBox.Show("GET logic for GPT counter should be implemented here.", "GPT", MessageBoxButtons.OK, MessageBoxIcon.Information); }
 
         private void FlashButton_Click(object sender, EventArgs e)
         {
             if (flashForm == null || flashForm.IsDisposed)
             {
-                // TODO GA: Make relative path.
-                string dataFlashPath = @"C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\e_bike_simulator\threadx\ports\win32\vs_2019\example_build\Battery_Simulator\dataflash.bin";
+                if (flashForm != null && !flashForm.IsDisposed)
+                {
+                    flashForm.Activate();
+                    return;
+                }
 
-                flashForm = new FlashViewerForm("Internal Data Flash Utility", dataFlashPath);
-                flashForm.Show(this);
-            }
-            else
-            {
-                flashForm.Activate(); // Bring to front if already open
+                using (OpenFileDialog ofd = new OpenFileDialog())
+                {
+                    ofd.Title = "Select Internal Data Flash File (dataflash.bin)";
+                    ofd.Filter = "Binary Files (*.bin)|*.bin|All files (*.*)|*.*";
+                    ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        string selectedFilePath = ofd.FileName;
+
+                        flashForm = new FlashViewerForm("Internal Data Flash Utility", selectedFilePath);
+                        flashForm.Show(this);
+                    }
+                }
             }
         }
 
@@ -488,17 +544,24 @@ namespace Rtos_Comm
 
         private void SPIButton_Click(object sender, EventArgs e)
         {
-            if (spiFlashForm == null || spiFlashForm.IsDisposed)
-            {
-               // TODO GA: Make relative path.
-                string spiFlashPath = @"C:\Users\GOKHANAKK\Documents\Visual Studio 2022\Projects\e_bike_simulator\threadx\ports\win32\vs_2019\example_build\Battery_Simulator\external_flash.bin";
-
-                spiFlashForm = new FlashViewerForm("External SPI Flash Utility (MX25)", spiFlashPath);
-                spiFlashForm.Show(this);
-            }
-            else
+            if (spiFlashForm != null && !spiFlashForm.IsDisposed)
             {
                 spiFlashForm.Activate();
+                return;
+            }
+
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Title = "Select External SPI Flash File (externalflash.bin)";
+                ofd.Filter = "Binary Files (*.bin)|*.bin|All files (*.*)|*.*";
+                ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedFilePath = ofd.FileName;
+                    spiFlashForm = new FlashViewerForm("External SPI Flash Utility (MX25)", selectedFilePath);
+                    spiFlashForm.Show(this);
+                }
             }
         }
 

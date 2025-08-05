@@ -89,6 +89,7 @@
     <Compile Include="application\Driver\can_driver.cs" />
     <Compile Include="application\Driver\gpt_driver.cs" />
     <Compile Include="application\Driver\irq_driver.cs" />
+    <Compile Include="application\Driver\rtc_driver.cs" />
     <Compile Include="application\Forms\FlashViewerForm.cs">
       <SubType>Form</SubType>
     </Compile>

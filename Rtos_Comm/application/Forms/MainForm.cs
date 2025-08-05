@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Rtos_Comm.application.Configuration;
+﻿using Rtos_Comm.application.Configuration;
 using Rtos_Comm.application.Driver;
 using Rtos_Comm.application.JSON;
 using Rtos_Comm.application.PipeConnection;
 using Rtos_Comm.application.XMLParser;
 using Rtos_Comm.simulation;
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text.Json.Serialization;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Rtos_Comm
 {
@@ -33,6 +35,7 @@ namespace Rtos_Comm
         private IrqData _irq_data;
         private GPTData _gpt_data;
         private IoData _io_data;
+        private RTCData _rtc_data;
 
         private string Pipe_Name = "SimplePipe";
         private List<Message_Format> message_buffer = new List<Message_Format>();
@@ -45,6 +48,7 @@ namespace Rtos_Comm
         private bool b_gpt_set = false;
         private bool b_io_toggle = false;
         private bool b_release_io_message = false;
+        private bool b_release_rtc_message = false;
 
         private int DEFAULT_SEND_INTERVAL_IN_MS = 1000;
 
@@ -55,6 +59,7 @@ namespace Rtos_Comm
         private CancellationTokenSource _taskCts;
         private Task _producerTask;
         private Task _consumerTask;
+        private Task _listenerTask;
 
         public MainForm()
         {
@@ -68,8 +73,10 @@ namespace Rtos_Comm
             _can_Simulator = new CAN_Simulator();
             _gpt_data = new GPTData();
             _io_data = new IoData();
+            _rtc_data = new RTCData();
 
             _xml_parser = new XML_Parser();
+
         }
 
         private void list_filler(string s_type, object obj_value)
@@ -212,7 +219,23 @@ namespace Rtos_Comm
                 finally
                 {
                     b_release_io_message = false;
-                }              
+                }
+            }
+
+            if (b_release_rtc_message)
+            {
+                try
+                {
+                    list_filler("rtc", _rtc_data);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"RTC Data Processor Error: {ex.Message}");
+                }
+                finally
+                {
+                    b_release_rtc_message = false;
+                }
             }
 
         }
@@ -261,68 +284,185 @@ namespace Rtos_Comm
         /// </summary>
         private async Task ConsumerLoopAsync(CancellationToken token)
         {
-            // GetConsumingEnumerable starts listening to the queue.
-            // It blocks until a new item is available or the task is canceled.
             foreach (var message in _messageQueue.GetConsumingEnumerable(token))
             {
                 try
                 {
-                    await _pipeClient.ConnectAsync();
                     await _pipeClient.SendMessageAsync(message);
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine($"ConsumerLoopAsync/Send Error: {ex.Message}");
                 }
-                finally
-                {
-                    // Attempt to disconnect after every try
-                    _pipeClient.Disconnect();
-                }
             }
         }
 
-        private void Connect_Button_Click(object sender, EventArgs e)
+        private async Task ListenerLoopAsync(CancellationToken token)
+        {
+            try
+            {
+                while (!token.IsCancellationRequested)
+                {
+                    string receivedMessage = await _pipeClient.ReceiveMessageAsync();
+                    if (receivedMessage == null)
+                    {
+                        Debug.WriteLine("ListenerLoopAsync: Pipe disconnected.");
+                        if (b_is_process_running)
+                        {
+                            this.Invoke((Action)(() => Disconnect_Button_Click(this, EventArgs.Empty)));
+                        }
+                        break;
+                    }
+                    ProcessIncomingMessage(receivedMessage);
+                }
+            }
+            catch (OperationCanceledException) { }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"ListenerLoopAsync Exception: {ex.Message}");
+            }
+        }
+
+        private void ProcessIncomingMessage(string in_pipe_data)
+        {
+            try
+            {
+                List<Message_Format> message = _json_Class.Json_Parser(in_pipe_data);
+
+                foreach (Message_Format message_format in message)
+                {
+                    if ((null != message_format) && ("rtc" == message_format.driver))
+                    {
+                        string jsonData = System.Text.Json.JsonSerializer.Serialize(message_format.data);
+                        RTCData rtcData = System.Text.Json.JsonSerializer.Deserialize<RTCData>(jsonData);
+
+                        if (rtcData != null)
+                        {
+                            if (rtc_event_t.RTC_SET == rtcData.rtc_event)
+                            {
+                                _rtc_data = rtcData;
+                                UpdateRtcLabel(rtcData);
+                            }
+                        }
+                        // Add here the other received drivers if conditions.
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"ProcessIncomingMessage Error: {ex.Message} on message: {in_pipe_data}");
+            }
+        }
+
+        private void UpdateRtcLabel(RTCData timeData)
+        {
+            string timeString = $"{timeData.hour:D2}:{timeData.minute:D2}:{timeData.second:D2}";
+
+            if (this.lblRtcTime.InvokeRequired)
+            {
+                this.lblRtcTime.Invoke(new Action(() =>
+                {
+                    this.lblRtcTime.Text = timeString;
+                }));
+            }
+            else
+            {
+                this.lblRtcTime.Text = timeString;
+            }
+        }
+
+        private void btnRtcSync_Click(object sender, EventArgs e)
+        {
+            DateTime now = DateTime.Now;
+
+            _rtc_data.year = now.Year;
+            _rtc_data.month = now.Month;
+            _rtc_data.day = now.Day;
+            _rtc_data.hour = now.Hour;
+            _rtc_data.minute = now.Minute;
+            _rtc_data.second = now.Second;
+
+            UpdateRtcLabel(_rtc_data);
+        }
+        private void btnRtcGet_Click(object sender, EventArgs e)
+        {
+            _rtc_data.rtc_event = rtc_event_t.RTC_GET;
+            _rtc_data.second = 0;
+            _rtc_data.minute = 0;
+            _rtc_data.hour = 0;
+            _rtc_data.day = 0;
+            _rtc_data.month = 0;
+            _rtc_data.year = 0;
+            b_release_rtc_message = true;
+        }
+        private void btnRtcSet_Click(object sender, EventArgs e)
+        {
+            DateTime now = DateTime.Now;
+
+            _rtc_data.rtc_event = rtc_event_t.RTC_SET;
+            _rtc_data.year = now.Year;
+            _rtc_data.month = now.Month;
+            _rtc_data.day = now.Day;
+            _rtc_data.hour = now.Hour;
+            _rtc_data.minute = now.Minute;
+            _rtc_data.second = now.Second;
+            b_release_rtc_message = true;
+        }
+
+        private async void Connect_Button_Click(object sender, EventArgs e)
         {
             if (b_is_process_running) return;
 
-            b_is_process_running = true;
-            _messageQueue = new BlockingCollection<string>();
-            _taskCts = new CancellationTokenSource();
-            CancellationToken token = _taskCts.Token;
-
-            _producerTask = Task.Run(() => ProducerLoopAsync(token), token);
-            _consumerTask = Task.Run(() => ConsumerLoopAsync(token), token);
-
             Connect_Button.Enabled = false;
-            Disconnect_Button.Enabled = true;
+
+            bool isConnected = await _pipeClient.ConnectAsync();
+
+            if (isConnected)
+            {
+                b_is_process_running = true;
+                _messageQueue = new BlockingCollection<string>();
+                _taskCts = new CancellationTokenSource();
+                CancellationToken token = _taskCts.Token;
+
+                _listenerTask = Task.Run(() => ListenerLoopAsync(token), token);
+                _producerTask = Task.Run(() => ProducerLoopAsync(token), token);
+                _consumerTask = Task.Run(() => ConsumerLoopAsync(token), token);
+
+                Disconnect_Button.Enabled = true;
+                Console.WriteLine("Pipe connected and all tasks started.");
+            }
+            else
+            {
+                MessageBox.Show("Failed to connect to the C simulation. Please ensure the simulation is running.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Connect_Button.Enabled = true;
+            }
         }
 
         private async void Disconnect_Button_Click(object sender, EventArgs e)
         {
             if (!b_is_process_running) return;
 
+            Disconnect_Button.Enabled = false;
+
             if (_taskCts != null)
             {
-                _taskCts.Cancel(); // Signal cancellation to the tasks.
+                _taskCts.Cancel();
                 try
                 {
-                    // Wait for both tasks to complete gracefully.
                     await Task.WhenAll(_producerTask, _consumerTask);
+                    await Task.Run(() => _listenerTask.Wait(1000));
                 }
-                catch (OperationCanceledException)
-                {
-                }
+                catch { }
                 finally
                 {
                     _taskCts.Dispose();
                     _taskCts = null;
-                    b_is_process_running = false;
                 }
             }
 
+            _pipeClient.Disconnect();
+            b_is_process_running = false;
             Connect_Button.Enabled = true;
-            Disconnect_Button.Enabled = false;
         }
 
         private void TextBoxDlc_TextChanged(object sender, EventArgs e)
@@ -359,12 +499,12 @@ namespace Rtos_Comm
         }
 
         private void IRQButton_Click(object sender, EventArgs e)
-        { 
-            b_release_irq_message = true; 
+        {
+            b_release_irq_message = true;
         }
         private void sendButton_Click(object sender, EventArgs e)
         {
-            b_release_oneshot_can_message = true; 
+            b_release_oneshot_can_message = true;
         }
 
         private void autoStart_Click(object sender, EventArgs e)
@@ -382,7 +522,7 @@ namespace Rtos_Comm
             }
         }
 
-        private void IOButton_Click(object sender, EventArgs e) 
+        private void IOButton_Click(object sender, EventArgs e)
         {
             int port = (int)this.numIoPort.Value;
             int pin = (int)this.numIoPin.Value;
@@ -419,8 +559,6 @@ namespace Rtos_Comm
             }
         }
 
-        private void RTCButton_Click(object sender, EventArgs e) { }
-
         private void btnLoadXml_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
@@ -449,6 +587,7 @@ namespace Rtos_Comm
                         IRQSelectCombo.Items.Clear();
                         IRQSelectCombo.Items.Add(default_string);
                         IRQSelectCombo.Items.Add(allIrqs[0].Used_Irq_Channels);
+                        IRQSelectCombo.SelectedIndex = 0; ;
 
                         var allgpts = _xml_parser.GetConfigs<GPT_Config_Class>();
                         _gpt_data.channel_count = allgpts.Count;

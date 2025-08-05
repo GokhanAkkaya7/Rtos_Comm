@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO.Pipes;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Rtos_Comm.application.PipeConnection
@@ -12,7 +13,8 @@ namespace Rtos_Comm.application.PipeConnection
     {
         private NamedPipeClientStream _pipeClient;
         private readonly string _pipeName;
-        private bool _isConnected => _pipeClient != null && _pipeClient.IsConnected;
+
+        public bool IsConnected => _pipeClient != null && _pipeClient.IsConnected;
 
         public PipeClient(string pipeName)
         {
@@ -21,39 +23,26 @@ namespace Rtos_Comm.application.PipeConnection
 
         public async Task<bool> ConnectAsync(int timeoutMs = 3000)
         {
-            if (_isConnected)
+            if (IsConnected) 
                 return true;
 
-            _pipeClient = new NamedPipeClientStream(".", _pipeName, PipeDirection.InOut);
             try
             {
+                _pipeClient = new NamedPipeClientStream(".", _pipeName, PipeDirection.InOut, PipeOptions.Asynchronous);
                 await _pipeClient.ConnectAsync(timeoutMs);
-                return _pipeClient.IsConnected;
-            }
-            catch (TimeoutException)
-            {
-                Console.WriteLine("Connection attempt timed out.");
-                _pipeClient?.Dispose();
-                _pipeClient = null;
-            }
-            catch (IOException ex)
-            {
-                Console.WriteLine($"IO error while connecting: {ex.Message}");
-                _pipeClient?.Dispose();
-                _pipeClient = null;
+                return IsConnected;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Unexpected error: {ex.Message}");
-                _pipeClient?.Dispose();
-                _pipeClient = null;
+                Console.WriteLine($"[PipeClient] Connection failed: {ex.Message}");
+                Disconnect(); 
+                return false;
             }
-
-            return false;
         }
+
         public async Task<string> ReceiveMessageAsync()
         {
-            if (!_isConnected)
+            if (!IsConnected)
             {
                 return null;
             }
@@ -87,7 +76,7 @@ namespace Rtos_Comm.application.PipeConnection
         }
         public async Task<bool> SendMessageAsync(string sent_message)
         {
-            if (!_isConnected)
+            if (!IsConnected)
             {
                 Console.WriteLine("Not connected.");
                 return false;
@@ -117,24 +106,9 @@ namespace Rtos_Comm.application.PipeConnection
         }
         public void Disconnect()
         {
-            if (_pipeClient != null)
-            {
-                try
-                {
-                    _pipeClient.Close();
-                    _pipeClient.Dispose();
-                    _pipeClient = null;
-                    Console.WriteLine("Disconnected from the pipe.");
-                }
-                catch (IOException ex)
-                {
-                    Console.WriteLine($"IO error while disconnecting: {ex.Message}");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Unexpected error during disconnection: {ex.Message}");
-                }
-            }
+            _pipeClient?.Close(); 
+            _pipeClient?.Dispose();
+            _pipeClient = null;
         }
     }
 }

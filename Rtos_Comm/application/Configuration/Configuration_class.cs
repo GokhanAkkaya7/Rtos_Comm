@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 
 namespace Rtos_Comm.application.Configuration
 {
-
+    public enum rtc_event_t
+    {
+        RTC_SET = 0, RTC_GET 
+    }
     public enum app_io_level_t
     {
         APP_IO_LEVEL_LOW = 0, APP_IO_LEVEL_HIGH
