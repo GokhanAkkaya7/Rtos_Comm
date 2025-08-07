@@ -1,0 +1,79 @@
+## Visual Studio
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+*.log
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.VC.opendb
+*.VC.db-wal
+*.dbmdl
+
+# IntelliSense files
+.ipch/
+*.pch
+*.pdb
+*.idb
+
+# Other cache/temp files
+*.aps
+*.ncb
+*.sdf
+*.cachefile
+*.tlog
+*.log
+*.vspscc
+*.vssscc
+*.vsmdi
+*.psess
+*.vsp
+*.vsix
+
+# Visual Studio 2022 workspace
+.vs/
+.vscode/
+
+# NuGet paketleri (if exists)
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# DotCover, JetBrains Rider, ReSharper
+.idea/
+*.DotSettings.user
+_ReSharper*/
+*.resharper
+
+# CMake outputs
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Dump files
+*.dmp
+
+# Publish folder
+publish/
+
+# Test results
+TestResults/
+
+# ignorable config files
+*.local.json
+
+*.orig
+
+# others
+*.scc
+*.err
+*.tmp

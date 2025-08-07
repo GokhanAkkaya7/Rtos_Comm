@@ -353,7 +353,6 @@ namespace Rtos_Comm
                 Debug.WriteLine($"ProcessIncomingMessage Error: {ex.Message} on message: {in_pipe_data}");
             }
         }
-
         private void UpdateRtcLabel(RTCData timeData)
         {
             string timeString = $"{timeData.hour:D2}:{timeData.minute:D2}:{timeData.second:D2}";

@@ -160,8 +160,8 @@ namespace Rtos_Comm
 
             var groupBoxActions = new GroupBox { Text = "Protocols & Utilities", Dock = DockStyle.Fill, Font = new Font("Segoe UI", 10F, FontStyle.Bold) };
 
-            var actionButtonsTlp = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 1, RowCount = 5, Padding = new Padding(8) };
-            for (int i = 0; i < 5; i++) actionButtonsTlp.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            var actionButtonsTlp = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 1, RowCount = 6, Padding = new Padding(8) };
+            for (int i = 0; i < 6; i++) actionButtonsTlp.RowStyles.Add(new RowStyle(SizeType.Percent, 100F / 6F));
 
             groupBoxActions.Controls.Add(actionButtonsTlp);
 
@@ -170,7 +170,13 @@ namespace Rtos_Comm
             this.I2CButton = CreateStyledRoundButton("I2C Protocol", Color.FromArgb(0, 123, 255), Color.White); this.I2CButton.Dock = DockStyle.Fill; this.I2CButton.Click += this.I2CButton_Click;
             this.FlashButton = CreateStyledRoundButton("Flash Utility", Color.FromArgb(23, 162, 184), Color.White); this.FlashButton.Dock = DockStyle.Fill; this.FlashButton.Click += this.FlashButton_Click;
             this.MonitorButton = CreateStyledRoundButton("Data Monitor", Color.FromArgb(23, 162, 184), Color.White); this.MonitorButton.Dock = DockStyle.Fill; this.MonitorButton.Click += this.MonitorButton_Click;
-            actionButtonsTlp.Controls.Add(this.CANButton, 0, 0); actionButtonsTlp.Controls.Add(this.SPIButton, 0, 1); actionButtonsTlp.Controls.Add(this.I2CButton, 0, 2); actionButtonsTlp.Controls.Add(this.FlashButton, 0, 3); actionButtonsTlp.Controls.Add(this.MonitorButton, 0, 4);
+            this.GaugeButton = CreateStyledRoundButton("BMS Gauge", Color.FromArgb(255, 193, 7), Color.Black); this.GaugeButton.Dock = DockStyle.Fill; this.GaugeButton.Click += this.GaugeButton_Click;
+            actionButtonsTlp.Controls.Add(this.CANButton, 0, 0);
+            actionButtonsTlp.Controls.Add(this.SPIButton, 0, 1);
+            actionButtonsTlp.Controls.Add(this.I2CButton, 0, 2);
+            actionButtonsTlp.Controls.Add(this.GaugeButton, 0, 3);
+            actionButtonsTlp.Controls.Add(this.FlashButton, 0, 4);
+            actionButtonsTlp.Controls.Add(this.MonitorButton, 0, 5);
 
             var groupBoxSettings = new GroupBox { Text = "Settings", Dock = DockStyle.Fill, Font = new Font("Segoe UI", 10F, FontStyle.Bold), Margin = new Padding(0, 5, 0, 0) };
             leftPaneTlp.Controls.Add(groupBoxActions, 0, 0); leftPaneTlp.Controls.Add(groupBoxSettings, 0, 1);
@@ -344,6 +350,7 @@ namespace Rtos_Comm
         private RoundButton ADCButton, IOButton, IRQButton, GPTButton;
         private RoundButton Connect_Button, Disconnect_Button, btnLoadXml;
         private RoundButton CANButton, SPIButton, I2CButton, FlashButton, MonitorButton;
+        private RoundButton GaugeButton;
         private Label lblXmlStatus;
         private NumericUpDown numIoPort;
         private NumericUpDown numIoPin;
@@ -363,6 +370,7 @@ namespace Rtos_Comm
         private Form flashForm;
         private Form spiFlashForm;
         private Form monitorForm;
+        private Form gaugeForm;
 
         #endregion
 
@@ -420,6 +428,18 @@ namespace Rtos_Comm
         #region Event Handlers
         private void GPTButton_Click(object sender, EventArgs e) { MessageBox.Show("GET logic for GPT counter should be implemented here.", "GPT", MessageBoxButtons.OK, MessageBoxIcon.Information); }
 
+        private void GaugeButton_Click(object sender, EventArgs e)
+        {
+            if (gaugeForm == null || gaugeForm.IsDisposed)
+            {
+                gaugeForm = new GaugeForm();
+                gaugeForm.Show(this); 
+            }
+            else
+            {
+                gaugeForm.Activate(); 
+            }
+        }
         private void FlashButton_Click(object sender, EventArgs e)
         {
             if (flashForm == null || flashForm.IsDisposed)
