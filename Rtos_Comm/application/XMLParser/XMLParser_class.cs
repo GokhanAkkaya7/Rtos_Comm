@@ -24,7 +24,6 @@ namespace Rtos_Comm.application.XMLParser
         // Bu harita, ADC gibi birleşik yapılar için kullanılmaya devam edecek.
         private readonly Dictionary<string, IDriverConfig> configMap = new Dictionary<string, IDriverConfig>();
 
-        // *** YENİ KURAL LİSTESİ ***
         // Bu listedeki anahtarlar ("gpt" gibi), her bulunduğunda yeni bir nesne oluşturulmasını sağlar.
         private readonly List<string> multiInstanceKeys = new List<string>
         {

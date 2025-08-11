@@ -7,24 +7,68 @@
       "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\gaugeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\bms\\batterysimulator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\bms\\batterysimulator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|c:\\users\\gokhanakk\\documents\\visual studio 2022\\projects\\rtos_comm\\rtos_comm\\application\\bms\\statusled.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\bms\\statusled.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|c:\\users\\gokhanakk\\documents\\visual studio 2022\\projects\\rtos_comm\\rtos_comm\\application\\bms\\statusled.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\bms\\statusled.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\designs\\moderntrackbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\designs\\moderntrackbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\designs\\moderntrackbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\designs\\moderntrackbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\bms\\batterystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\bms\\batterystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\xmlparser\\xmlparser_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\xmlparser\\xmlparser_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\textprogressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\textprogressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\textprogressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\textprogressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\pipeconnection\\pipeclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\pipeconnection\\pipeclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\gaugeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\gaugeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\textprogressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\textprogressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\designs\\modernprogressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\designs\\modernprogressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\gaugeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\gaugeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\flashviewerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,10 +85,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\json\\messageformats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\json\\messageformats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\pipeconnection\\pipeclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\pipeconnection\\pipeclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\driver\\rtc_driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -67,16 +107,8 @@
       "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\driver\\gpt_driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\xmlparser\\xmlparser_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\xmlparser\\xmlparser_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\driver\\can_driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\driver\\can_driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -99,13 +131,13 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "GaugeForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\GaugeForm.cs",
-              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\GaugeForm.cs",
-              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\GaugeForm.cs [Design]",
-              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\GaugeForm.cs [Design]",
+              "Title": "StatusLed.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\StatusLed.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\BMS\\StatusLed.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\StatusLed.cs [Design]",
+              "RelativeToolTip": "Rtos_Comm\\application\\BMS\\StatusLed.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T13:50:53.885Z",
+              "WhenOpened": "2025-08-08T06:58:30.917Z",
               "EditorCaption": " [Design]"
             },
             {
@@ -116,50 +148,14 @@
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\GaugeForm.cs",
               "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\GaugeForm.cs",
               "RelativeToolTip": "Rtos_Comm\\application\\Forms\\GaugeForm.cs",
-              "ViewState": "AgIAAK8AAAAAAAAAAAAgwMQAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAADcAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-06T13:26:12.38Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TextProgressBar.cs",
-              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\TextProgressBar.cs",
-              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\TextProgressBar.cs",
-              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\TextProgressBar.cs",
-              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\TextProgressBar.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T13:24:48.771Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainForm.cs",
-              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs",
-              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.cs",
-              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs",
-              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\MainForm.cs",
-              "ViewState": "AgIAAOkAAAAAAAAAAAAAAPYAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T10:42:30.383Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
-              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
-              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
-              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
-              "ViewState": "AgIAAKABAAAAAAAAAAAAALMBAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T10:17:46.35Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.cs",
@@ -170,7 +166,178 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
+              "ViewState": "AgIAAEkBAAAAAAAAAAAowFsBAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T10:17:46.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PipeClient.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAhwC0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T05:46:42.698Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ModernTrackBar.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Designs\\ModernTrackBar.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Designs\\ModernTrackBar.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Designs\\ModernTrackBar.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\Designs\\ModernTrackBar.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAcwKwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T12:27:34.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BatterySimulator.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\BatterySimulator.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\BMS\\BatterySimulator.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\BatterySimulator.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\BMS\\BatterySimulator.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAkwIIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T12:03:30.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "BatteryState.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\BatteryState.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\BMS\\BatteryState.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\BatteryState.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\BMS\\BatteryState.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAApwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T12:01:15.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StatusLed.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\StatusLed.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\BMS\\StatusLed.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\StatusLed.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\BMS\\StatusLed.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T06:14:14.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\Program.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\Program.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\Program.cs",
+              "RelativeToolTip": "Rtos_Comm\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T12:05:57.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ModernTrackBar.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Designs\\ModernTrackBar.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Designs\\ModernTrackBar.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Designs\\ModernTrackBar.cs [Design]",
+              "RelativeToolTip": "Rtos_Comm\\application\\Designs\\ModernTrackBar.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T13:28:07.28Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "ViewState": "AgIAAOYBAAAAAAAAAAAcwPYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T10:42:30.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TextProgressBar.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\TextProgressBar.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\TextProgressBar.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\TextProgressBar.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\TextProgressBar.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAwwDIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T13:24:48.771Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "XMLParser_class.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\XMLParser\\XMLParser_class.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\XMLParser\\XMLParser_class.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\XMLParser\\XMLParser_class.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\XMLParser\\XMLParser_class.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAADgv0kAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T12:22:25.303Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TextProgressBar.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\TextProgressBar.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\TextProgressBar.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\TextProgressBar.cs [Design]",
+              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\TextProgressBar.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T12:23:55.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GaugeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\GaugeForm.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\GaugeForm.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\GaugeForm.cs [Design]",
+              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\GaugeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T13:50:53.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ModernProgressBar.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Designs\\ModernProgressBar.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Designs\\ModernProgressBar.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Designs\\ModernProgressBar.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\Designs\\ModernProgressBar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T12:27:06.1Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "FlashViewerForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\FlashViewerForm.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\FlashViewerForm.cs",
@@ -181,7 +348,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 17,
               "Title": "FlashViewerForm.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\FlashViewerForm.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\FlashViewerForm.cs",
@@ -193,7 +360,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 23,
               "Title": "irq_driver.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Driver\\irq_driver.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\Driver\\irq_driver.cs",
@@ -205,7 +372,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 22,
               "Title": "Configuration_class.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Configuration\\Configuration_class.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\Configuration\\Configuration_class.cs",
@@ -217,19 +384,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "PipeClient.cs",
-              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
-              "RelativeDocumentMoniker": "Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
-              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
-              "RelativeToolTip": "Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAkwCYAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T05:46:42.698Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "rtc_driver.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Driver\\rtc_driver.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\Driver\\rtc_driver.cs",
@@ -241,7 +396,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 20,
               "Title": "MessageFormats.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\JSON\\MessageFormats.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\JSON\\MessageFormats.cs",
@@ -253,7 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 19,
               "Title": "Json_Class.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\JSON\\Json_Class.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\JSON\\Json_Class.cs",
@@ -265,7 +420,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 24,
               "Title": "adc_driver.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Driver\\adc_driver.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\Driver\\adc_driver.cs",
@@ -277,7 +432,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 25,
               "Title": "gpt_driver.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Driver\\gpt_driver.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\Driver\\gpt_driver.cs",
@@ -289,19 +444,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "XMLParser_class.cs",
-              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\XMLParser\\XMLParser_class.cs",
-              "RelativeDocumentMoniker": "Rtos_Comm\\application\\XMLParser\\XMLParser_class.cs",
-              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\XMLParser\\XMLParser_class.cs",
-              "RelativeToolTip": "Rtos_Comm\\application\\XMLParser\\XMLParser_class.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAADwv10AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T12:22:25.303Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 26,
               "Title": "can_driver.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Driver\\can_driver.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\Driver\\can_driver.cs",
@@ -313,19 +456,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\Program.cs",
-              "RelativeDocumentMoniker": "Rtos_Comm\\Program.cs",
-              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\Program.cs",
-              "RelativeToolTip": "Rtos_Comm\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T12:05:57.71Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 28,
               "Title": "packages.config",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\packages.config",
               "RelativeDocumentMoniker": "Rtos_Comm\\packages.config",
@@ -337,7 +468,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 27,
               "Title": "App.config",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\App.config",
               "RelativeDocumentMoniker": "Rtos_Comm\\App.config",

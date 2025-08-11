@@ -84,7 +84,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="application\BMS\BatterySimulator.cs" />
+    <Compile Include="application\BMS\BatteryState.cs" />
+    <Compile Include="application\BMS\StatusLed.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="application\Configuration\Configuration_class.cs" />
+    <Compile Include="application\Designs\ModernProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="application\Designs\ModernTrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="application\Driver\adc_driver.cs" />
     <Compile Include="application\Driver\can_driver.cs" />
     <Compile Include="application\Driver\gpt_driver.cs" />

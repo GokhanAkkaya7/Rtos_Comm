@@ -1,6 +1,4 @@
-﻿// FILE: TextProgressBar.cs
-
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace Rtos_Comm
