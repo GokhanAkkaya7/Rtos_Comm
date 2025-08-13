@@ -2,19 +2,53 @@ using Rtos_Comm;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using Rtos_Comm.application.JSON;
 
+// Enums to make BQ78350 status flags more readable in C#
+[Flags]
+public enum SafetyStatusFlags : uint
+{
+    None = 0,
+    CUV = 1 << 0,  // Cell Undervoltage
+    COV = 1 << 1,  // Cell Overvoltage
+    OCC = 1 << 2,  // Overcurrent in Charge
+    OCD = 1 << 3,  // Overcurrent in Discharge
+    AOLD = 1 << 4, // Overload in Discharge
+    ASCD = 1 << 6, // Short Circuit in Discharge
+    OTC = 1 << 8,  // Overtemperature for Charge
+    OTD = 1 << 9,  // Overtemperature for Discharge
+    UTC = 1 << 10, // Undertemperature for Charge
+    UTD = 1 << 11, // Undertemperature for Discharge
+    OTF = 1 << 13  // Overtemperature for FET
+}
+
+[Flags]
+public enum ChargingStatusFlags : ushort
+{
+    None = 0,
+    UT = 1 << 0,   // Undertemperature
+    LT = 1 << 1,   // Low Temperature
+    ST = 1 << 2,   // Standard Temperature
+    HT = 1 << 3,   // High Temperature
+    OT = 1 << 4,   // Overtemperature
+    IN = 1 << 12,  // Charge Inhibit
+    SU = 1 << 13,  // Suspend Charge
+    VCT = 1 << 15, // VCT (Voltage Controlled Termination) detected
+}
 public class BatterySimulator : IDisposable
 {
-    public event Action<BatteryState> StateUpdated;
+    public event Action<BatteryState> StateUpdated;  
+    public BatteryState CurrentState => _currentState;
 
     private const int CELL_COUNT = 10;
     private const double FULL_CELL_VOLTAGE_V = 4.2;
     private const double EMPTY_CELL_VOLTAGE_V = 3.0;
     private const double TOTAL_CAPACITY_MAH = 5000.0;
-
+    
     private readonly BatteryState _currentState;
     private double _currentCapacityMah;
     private readonly Timer _simulationTimer;
+    private readonly BmsConfigData _configData;
 
     // Stores manually overridden cell voltages from the UI.
     // A null value means the cell is not manually controlled.
@@ -23,6 +57,10 @@ public class BatterySimulator : IDisposable
     public BatterySimulator()
     {
         _currentState = new BatteryState();
+        _configData = new BmsConfigData();
+
+        InitializeLifetimeData();
+
         _currentCapacityMah = TOTAL_CAPACITY_MAH / 2;
 
         // Initial state calculation
@@ -38,13 +76,24 @@ public class BatterySimulator : IDisposable
         _simulationTimer.Stop();
         _simulationTimer.Dispose();
     }
+    private void InitializeLifetimeData()
+    {
+        for (int i = 0; i < 15; i++)
+        {
+            _currentState.BmsRegisters.lifetime_min_cell_v[i] = 2850; // Example: 2.85V
+            _currentState.BmsRegisters.lifetime_max_cell_v[i] = 4250; // Example: 4.25V
+        }
+        _currentState.BmsRegisters.lifetime_max_charge_current = 4800;   // Example: 4.8A
+        _currentState.BmsRegisters.lifetime_max_discharge_current = -6500; // Example: -6.5A
+        _currentState.BmsRegisters.lifetime_max_temp_cell = 3200;        // Example: ~47°C in 0.1K
+        _currentState.BmsRegisters.lifetime_min_temp_cell = 2780;        // Example: ~5°C in 0.1K
+    }
+
 
     // --- Public methods for UI interaction ---
-    public void SetCurrent(int currentInMa)
-    {
-        _currentState.Current_A = currentInMa / 1000.0f;
-        UpdateStatusFromCurrent();
-    }
+    public void SetCurrent(int currentInMa) => _currentState.Current_A = currentInMa / 1000.0f;
+    public void SetTemperature(int tempInC) => _currentState.Temperature_C = tempInC;
+
     public void SetSoC(int soc)
     {
         // 1. Clamp the value between 0 and 100.
@@ -71,8 +120,6 @@ public class BatterySimulator : IDisposable
         // 3. Notify the UI of the change.
         StateUpdated?.Invoke(_currentState);
     }
-
-    public void SetTemperature(int tempInC) => _currentState.Temperature_C = tempInC;
 
     /// <summary>
     /// Sets an individual cell voltage from the UI and recalculates the entire system state.
@@ -129,77 +176,78 @@ public class BatterySimulator : IDisposable
         // 4. Calculate all other dependent values.
         _currentState.PackVoltage_V = _currentState.CellVoltages_V.Sum();
 
-        UpdateStatusFromCurrent();
         UpdateRegistersFromState(); // This translates the state to BQ78350 format.
     }
 
-    /// <summary>
-    /// Translates the current high-level state into the raw BQ78350 register format.
-    /// </summary>
-    /// 
-    private void UpdateStatusFromCurrent()
-    {
-        if (_currentState.Current_A > 0.05)
-        {
-            _currentState.Status = "CHARGING";
-        }
-        else if (_currentState.Current_A < -0.05)
-        {
-            _currentState.Status = "DISCHARGING";
-        }
-        else
-        {
-            _currentState.Status = "IDLE";
-        }
-    }
     private void UpdateRegistersFromState()
     {
-        var regs = _currentState.Registers;
+        var regs = _currentState.BmsRegisters;
 
-        // --- Populate Single Word Registers ---
-        regs.PackVoltage = (ushort)(_currentState.PackVoltage_V * 1000);
-        regs.Current = (short)(_currentState.Current_A * 1000);
-        regs.RelativeSoC = (byte)_currentState.SoC;
-        regs.StateOfHealth = (byte)_currentState.SoH;
-        regs.CycleCount = 15;
-        regs.RemainingCapacity = (ushort)_currentCapacityMah;
-        regs.FullChargeCapacity = (ushort)TOTAL_CAPACITY_MAH;
-        regs.Temperature = (ushort)((_currentState.Temperature_C + 273.15) * 10);
-
+        // --- Part 1: Populate Real-time Single Word Registers (Mostly Unchanged) ---
+        regs.pack_voltage = (ushort)(_currentState.PackVoltage_V * 1000);
+        regs.current = (short)(_currentState.Current_A * 1000);
+        regs.relative_soc = (byte)_currentState.SoC;
+        regs.state_of_health = (byte)_currentState.SoH;
+        regs.cycle_count = 15;
+        regs.remaining_capacity = (ushort)_currentCapacityMah;
+        regs.full_charge_capacity = (ushort)TOTAL_CAPACITY_MAH;
+        regs.temperature = (ushort)((_currentState.Temperature_C + 273.15) * 10);
         for (int i = 0; i < 15; i++)
         {
-            regs.CellVoltages[i] = (i < _currentState.CellVoltages_V.Length)
+            regs.cell_voltages[i] = (i < _currentState.CellVoltages_V.Length)
                 ? (ushort)(_currentState.CellVoltages_V[i] * 1000)
                 : (ushort)0;
         }
 
-        // --- Populate Block Registers (Status Flags) ---
+        // --- Part 2: Populate Status Block Registers (with dynamic thresholds) ---
 
-        // SafetyStatus simulation
+        // SafetyStatus simulation using dynamic thresholds from config
         SafetyStatusFlags safetyFlags = SafetyStatusFlags.None;
-        if (_currentState.CellVoltages_V.Any(v => v > 4.25)) safetyFlags |= SafetyStatusFlags.COV;
-        if (_currentState.CellVoltages_V.Any(v => v < 2.90)) safetyFlags |= SafetyStatusFlags.CUV;
-        if (_currentState.Current_A > 5.1) safetyFlags |= SafetyStatusFlags.OCC;
-        if (_currentState.Current_A < -5.1) safetyFlags |= SafetyStatusFlags.OCD;
-        if (_currentState.Temperature_C > 60) safetyFlags |= SafetyStatusFlags.OTD;
-        if (_currentState.Temperature_C < -10) safetyFlags |= SafetyStatusFlags.UTC;
+        if (_currentState.CellVoltages_V.Any(v => v > _configData.CovThreshold / 1000.0f)) safetyFlags |= SafetyStatusFlags.COV;
+        if (_currentState.CellVoltages_V.Any(v => v < _configData.CuvThreshold / 1000.0f)) safetyFlags |= SafetyStatusFlags.CUV;
+        if (regs.current > _configData.OccThreshold) safetyFlags |= SafetyStatusFlags.OCC;
+        if (regs.current < _configData.OcdThreshold) safetyFlags |= SafetyStatusFlags.OCD;
+        if (regs.temperature > _configData.OtdThreshold) safetyFlags |= SafetyStatusFlags.OTD;
+        if (regs.remaining_capacity < _configData.UtcThreshold && regs.current > 0) safetyFlags |= SafetyStatusFlags.UTC;
+        // ... add other flags based on _configData ...
 
-        // Convert the 32-bit flag enum to a 4-byte array
-        regs.SafetyStatus = BitConverter.GetBytes((uint)safetyFlags);
-        if (!BitConverter.IsLittleEndian) Array.Reverse(regs.SafetyStatus);
+        regs.safety_status = BitConverter.GetBytes((uint)safetyFlags);
+        if (!BitConverter.IsLittleEndian) Array.Reverse(regs.safety_status);
+
+        // --- Update lifetime data based on current flags ---
+        if (safetyFlags.HasFlag(SafetyStatusFlags.COV)) regs.lifetime_cov_events_count++;
+        if (safetyFlags.HasFlag(SafetyStatusFlags.CUV)) regs.lifetime_cuv_events_count++;
+        // ... add other lifetime event counters here ...
 
         // ChargingStatus simulation
         ChargingStatusFlags chargingFlags = ChargingStatusFlags.None;
-        if (_currentState.Temperature_C < 0) chargingFlags |= ChargingStatusFlags.UT;
-        else if (_currentState.Temperature_C < 10) chargingFlags |= ChargingStatusFlags.LT;
-        else if (_currentState.Temperature_C > 45) chargingFlags |= ChargingStatusFlags.HT;
-        else chargingFlags |= ChargingStatusFlags.ST;
+        if (_currentState.Current_A > 0.05)
+        {
+            if (regs.temperature < _configData.UtcThreshold) chargingFlags |= ChargingStatusFlags.UT;
+            else if (regs.temperature < 2831) chargingFlags |= ChargingStatusFlags.LT; // ~10°C
+            else if (regs.temperature > _configData.OtcThreshold) chargingFlags |= ChargingStatusFlags.OT;
+            else if (regs.temperature > 3181) chargingFlags |= ChargingStatusFlags.HT; // ~45°C
+            else chargingFlags |= ChargingStatusFlags.ST;
+        }
+        regs.charging_status = BitConverter.GetBytes((ushort)chargingFlags);
+        if (!BitConverter.IsLittleEndian) Array.Reverse(regs.charging_status);
 
-        // Convert the 16-bit flag enum to a 2-byte array
-        regs.ChargingStatus = BitConverter.GetBytes((ushort)chargingFlags);
-        if (!BitConverter.IsLittleEndian) Array.Reverse(regs.ChargingStatus);
+        // Other status blocks (with example placeholder data)
+        regs.operation_status = new byte[] { 0x01, 0x80, 0x00, 0x00 };
+        regs.gauging_status = new byte[] { 0x0C, 0x00 };
+        regs.manufacturing_status = new byte[] { 0x00, 0x00 };
+        regs.pf_status = new byte[] { 0x00, 0x00, 0x00, 0x00 };
 
-        // OperationStatus simulation (example placeholder)
-        regs.OperationStatus = new byte[] { 0x00, 0x00, 0x00, 0x00 };
+        // --- Part 3: Populate String, Info, and Full Data Blocks ---
+        regs.manufacturer_name = "VESTEL-SIM";
+        regs.device_name = "BQ78350-R1-SIM";
+        regs.firmware_version = "v1.2.3";
+
+        regs.cov_threshold = _configData.CovThreshold;
+        regs.cuv_threshold = _configData.CuvThreshold;
+        regs.occ_threshold = _configData.OccThreshold;
+        regs.ocd_threshold = _configData.OcdThreshold;
+        regs.utc_threshold = _configData.UtdRecovery;
+        regs.otd_threshold = _configData.OtdThreshold;
     }
 }

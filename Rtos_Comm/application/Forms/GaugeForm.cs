@@ -43,7 +43,7 @@ namespace Rtos_Comm
         private Color labelTextColor = Color.FromArgb(108, 117, 125);
 
 
-        public GaugeForm()
+        public GaugeForm(BatterySimulator simulator)
         {
             this.Text = "BMS Gauge & Simulator (BQ78350)";
             this.Size = new Size(1250, 750);
@@ -54,8 +54,7 @@ namespace Rtos_Comm
             this.Font = new Font("Segoe UI", 9F);
 
             this.FormClosed += GaugeForm_FormClosed;
-
-            _simulator = new BatterySimulator();
+            _simulator = simulator;
             _simulator.StateUpdated += OnSimulatorStateUpdated;
 
             InitializeLayout();
@@ -122,7 +121,7 @@ namespace Rtos_Comm
             {
                 Dock = DockStyle.Fill,
                 ColumnCount = 4,
-                RowCount = 3, 
+                RowCount = 3,
                 Padding = new Padding(8, 5, 5, 5)
             };
             safetyTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 25F));
@@ -132,19 +131,19 @@ namespace Rtos_Comm
             for (int i = 0; i < 3; i++) safetyTlp.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33F));
             safetyPanel.Controls.Add(safetyTlp);
 
-            _ledCov = new StatusLed { ActiveColor = accentColorRed };   
-            _ledCuv = new StatusLed { ActiveColor = accentColorRed };   
-            _ledOcc = new StatusLed { ActiveColor = accentColorOrange };  
-            _ledOcd = new StatusLed { ActiveColor = accentColorOrange };  
-            _ledOtd = new StatusLed { ActiveColor = accentColorRed };   
-            _ledUtc = new StatusLed { ActiveColor = accentColorRed };   
+            _ledCov = new StatusLed { ActiveColor = accentColorRed };
+            _ledCuv = new StatusLed { ActiveColor = accentColorRed };
+            _ledOcc = new StatusLed { ActiveColor = accentColorOrange };
+            _ledOcd = new StatusLed { ActiveColor = accentColorOrange };
+            _ledOtd = new StatusLed { ActiveColor = accentColorRed };
+            _ledUtc = new StatusLed { ActiveColor = accentColorRed };
 
-            AddStatusRow(safetyTlp, _ledCov, "Cell Overvoltage (COV)", 0, 0);      
-            AddStatusRow(safetyTlp, _ledCuv, "Cell Undervoltage (CUV)", 1, 0);       
-            AddStatusRow(safetyTlp, _ledOcd, "Overcurrent Discharge (OCD)", 2, 0);  
+            AddStatusRow(safetyTlp, _ledCov, "Cell Overvoltage (COV)", 0, 0);
+            AddStatusRow(safetyTlp, _ledCuv, "Cell Undervoltage (CUV)", 1, 0);
+            AddStatusRow(safetyTlp, _ledOcd, "Overcurrent Discharge (OCD)", 2, 0);
 
-            AddStatusRow(safetyTlp, _ledOcc, "Overcurrent Charge (OCC)", 0, 2);      
-            AddStatusRow(safetyTlp, _ledOtd, "Overtemperature Discharge (OTD)", 1, 2); 
+            AddStatusRow(safetyTlp, _ledOcc, "Overcurrent Charge (OCC)", 0, 2);
+            AddStatusRow(safetyTlp, _ledOtd, "Overtemperature Discharge (OTD)", 1, 2);
             AddStatusRow(safetyTlp, _ledUtc, "Undertemperature Charge (UTC)", 2, 2);
 
             // --- RIGHT PANEL: CONTROLS ---
@@ -188,7 +187,8 @@ namespace Rtos_Comm
                 flowPanel.Controls.Add(label);
                 flowPanel.Controls.Add(control);
                 // Automatically set the width of the control to fill the rest of the panel
-                flowPanel.Resize += (s, e) => {
+                flowPanel.Resize += (s, e) =>
+                {
                     if (flowPanel.Controls.Count > 1)
                         flowPanel.Controls[1].Width = flowPanel.ClientSize.Width - flowPanel.Controls[0].Width - 5;
                 };
@@ -261,7 +261,7 @@ namespace Rtos_Comm
                 BackColor = _panelBackground,
                 ForeColor = _textPrimary,
                 Font = new Font("Segoe UI", 10F, FontStyle.Bold),
-                BorderStyle = BorderStyle.FixedSingle, 
+                BorderStyle = BorderStyle.FixedSingle,
                 TextAlign = HorizontalAlignment.Center
             };
             return numeric;
@@ -351,8 +351,7 @@ namespace Rtos_Comm
                     state.SoC,
                     state.SoH,
                     state.CellVoltages_V,
-                    state.Temperature_C,
-                    state.Status
+                    state.Temperature_C
                 );
         }
 
@@ -402,18 +401,26 @@ namespace Rtos_Comm
             _simulator.SetIndividualCellVoltage(cellIndex, voltageMv);
         }
 
-        public void UpdateGaugeData(float voltage, float current, int soc, int soh, float[] cellVoltages, float temperature, string status)
+        public void UpdateGaugeData(float voltage, float current, int soc, int soh, float[] cellVoltages, float temperature)
         {
             // If this method is called from a non-UI thread (e.g., the pipe listener),
             // marshal the call to the UI thread to prevent cross-threading exceptions.
             if (this.InvokeRequired)
             {
-                this.Invoke(new Action(() => UpdateGaugeData(voltage, current, soc, soh, cellVoltages, temperature, status)));
+                this.Invoke(new Action(() => UpdateGaugeData(voltage, current, soc, soh, cellVoltages, temperature)));
                 return;
             }
 
-            lblStatus.Text = status?.ToUpper() ?? "UNKNOWN";
-            switch (status?.ToUpper())
+            string status;
+            if (current > 0.05) 
+                status = "CHARGING"; 
+            else if (current < -0.05) 
+                status = "DISCHARGING";
+            else 
+                status = "IDLE"; 
+
+            lblStatus.Text = status;
+            switch (status)
             {
                 case "CHARGING":
                     rbModeCharging.Checked = true;
@@ -421,7 +428,7 @@ namespace Rtos_Comm
                 case "DISCHARGING":
                     rbModeDischarging.Checked = true;
                     break;
-                default: 
+                default: // IDLE
                     rbModeIdle.Checked = true;
                     break;
             }
@@ -479,17 +486,17 @@ namespace Rtos_Comm
                 }
             }
 
-            if (_lastKnownState?.Registers != null)
+            if (_lastKnownState?.BmsRegisters != null)
             {
-                if (_lastKnownState.Registers.SafetyStatus != null)
+                if (_lastKnownState.BmsRegisters.safety_status != null)
                 {
-                    var safetyFlags = (SafetyStatusFlags)BitConverter.ToUInt32(_lastKnownState.Registers.SafetyStatus, 0);
+                    var safetyFlags = (SafetyStatusFlags)BitConverter.ToUInt32(_lastKnownState.BmsRegisters.safety_status, 0);
                     _ledCov.Active = safetyFlags.HasFlag(SafetyStatusFlags.COV);
                     _ledCuv.Active = safetyFlags.HasFlag(SafetyStatusFlags.CUV);
                     _ledOcd.Active = safetyFlags.HasFlag(SafetyStatusFlags.OCD);
-                    _ledOcc.Active = safetyFlags.HasFlag(SafetyStatusFlags.OCC); 
-                    _ledOtd.Active = safetyFlags.HasFlag(SafetyStatusFlags.OTD); 
-                    _ledUtc.Active = safetyFlags.HasFlag(SafetyStatusFlags.UTC); 
+                    _ledOcc.Active = safetyFlags.HasFlag(SafetyStatusFlags.OCC);
+                    _ledOtd.Active = safetyFlags.HasFlag(SafetyStatusFlags.OTD);
+                    _ledUtc.Active = safetyFlags.HasFlag(SafetyStatusFlags.UTC);
                 }
             }
         }

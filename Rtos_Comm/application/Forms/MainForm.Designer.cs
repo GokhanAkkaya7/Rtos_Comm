@@ -428,18 +428,6 @@ namespace Rtos_Comm
         #region Event Handlers
         private void GPTButton_Click(object sender, EventArgs e) { MessageBox.Show("GET logic for GPT counter should be implemented here.", "GPT", MessageBoxButtons.OK, MessageBoxIcon.Information); }
 
-        private void GaugeButton_Click(object sender, EventArgs e)
-        {
-            if (gaugeForm == null || gaugeForm.IsDisposed)
-            {
-                gaugeForm = new GaugeForm();
-                gaugeForm.Show(this); 
-            }
-            else
-            {
-                gaugeForm.Activate(); 
-            }
-        }
         private void FlashButton_Click(object sender, EventArgs e)
         {
             if (flashForm == null || flashForm.IsDisposed)

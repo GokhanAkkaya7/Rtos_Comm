@@ -49,7 +49,7 @@ namespace Rtos_Comm.application.PipeConnection
 
             try
             {
-                byte[] buffer = new byte[1024];
+                byte[] buffer = new byte[1536];
                 int bytesRead = await _pipeClient.ReadAsync(buffer, 0, buffer.Length);
 
                 if (bytesRead == 0)

@@ -9,11 +9,9 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace Rtos_Comm
 {
@@ -36,6 +34,7 @@ namespace Rtos_Comm
         private GPTData _gpt_data;
         private IoData _io_data;
         private RTCData _rtc_data;
+        private BatterySimulator _bmsSimulator;
 
         private string Pipe_Name = "SimplePipe";
         private List<Message_Format> message_buffer = new List<Message_Format>();
@@ -49,6 +48,7 @@ namespace Rtos_Comm
         private bool b_io_toggle = false;
         private bool b_release_io_message = false;
         private bool b_release_rtc_message = false;
+        private bool b_release_bms_message = false;
 
         private int DEFAULT_SEND_INTERVAL_IN_MS = 1000;
 
@@ -235,6 +235,25 @@ namespace Rtos_Comm
                 finally
                 {
                     b_release_rtc_message = false;
+                }
+            }
+
+            if (b_release_bms_message && _bmsSimulator != null)
+            {
+                try
+                {
+                    // Get the latest complete register data from the simulator
+                    var bmsData = _bmsSimulator.CurrentState.BmsRegisters;
+                    list_filler("bms", bmsData); // Use "bms" as the driver name
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"BMS Data Processor Error: {ex.Message}");
+                }
+                finally
+                {
+                    // Reset the flag. It will be set to true again on the next simulator update.
+                    b_release_bms_message = false;
                 }
             }
 
@@ -608,6 +627,28 @@ namespace Rtos_Comm
                         MessageBox.Show("XML File Load Error:\n" + ex.Message);
                     }
                 }
+            }
+        }
+
+        private void GaugeButton_Click(object sender, EventArgs e)
+        {
+            if (gaugeForm == null || gaugeForm.IsDisposed)
+            {
+                // Create the simulator instance here, managed by MainForm
+                _bmsSimulator = new BatterySimulator();
+
+                // When the simulator updates, set a flag to send data
+                _bmsSimulator.StateUpdated += (state) => {
+                    b_release_bms_message = true;
+                };
+
+                // Pass the simulator instance to the GaugeForm
+                gaugeForm = new GaugeForm(_bmsSimulator);
+                gaugeForm.Show(this);
+            }
+            else
+            {
+                gaugeForm.Activate();
             }
         }
     }
