@@ -3,15 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\bms\\batterysimulator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\bms\\batterysimulator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\json\\messageformats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|c:\\users\\gokhanakk\\documents\\visual studio 2022\\projects\\rtos_comm\\rtos_comm\\application\\json\\messageformats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\json\\messageformats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,16 +23,16 @@
       "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\bms\\batterystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|c:\\users\\gokhanakk\\documents\\visual studio 2022\\projects\\rtos_comm\\rtos_comm\\application\\forms\\gaugeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\bms\\batterysimulator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\bms\\batterysimulator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\gaugeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\gaugeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\pipeconnection\\pipeclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\pipeconnection\\pipeclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\mainform.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
@@ -45,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\json\\json_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\json\\json_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|solutionrelative:rtos_comm\\application\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E674E15-24EB-4E80-B5DF-FAAAFC668FB3}|Rtos_Comm\\Rtos_Comm.csproj|C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\rtos_comm\\application\\bms\\statusled.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -130,62 +130,11 @@
       "DocumentGroups": [
         {
           "DockedHeight": 179,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MessageFormats.cs",
-              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\JSON\\MessageFormats.cs",
-              "RelativeDocumentMoniker": "Rtos_Comm\\application\\JSON\\MessageFormats.cs",
-              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\JSON\\MessageFormats.cs",
-              "RelativeToolTip": "Rtos_Comm\\application\\JSON\\MessageFormats.cs",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAiwJAAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T08:12:50.533Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MainForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
-              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
-              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
-              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
-              "ViewState": "AgIAAKABAAAAAAAAAAAYwK0BAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T10:17:46.35Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "GaugeForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\GaugeForm.cs",
-              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\GaugeForm.cs",
-              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\GaugeForm.cs [Design]",
-              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\GaugeForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T13:50:53.885Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainForm.cs",
-              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs",
-              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.cs",
-              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs",
-              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\MainForm.cs",
-              "ViewState": "AgIAACsBAAAAAAAAAAAYwDUBAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T10:42:30.383Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "PipeClient.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\PipeConnection\\PipeClient.cs",
@@ -197,20 +146,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "BatterySimulator.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\BatterySimulator.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\BMS\\BatterySimulator.cs",
               "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\BatterySimulator.cs",
               "RelativeToolTip": "Rtos_Comm\\application\\BMS\\BatterySimulator.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAnwFAAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAnwFIAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T12:03:30.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-07T12:03:30.4Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "GaugeForm.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\GaugeForm.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\GaugeForm.cs",
@@ -218,12 +166,23 @@
               "RelativeToolTip": "Rtos_Comm\\application\\Forms\\GaugeForm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T13:26:12.38Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-06T13:26:12.38Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
+              "Title": "BatteryState.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\BatteryState.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\BMS\\BatteryState.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\BatteryState.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\BMS\\BatteryState.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAApwBMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T12:01:15.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "MainForm.resx",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.resx",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.resx",
@@ -234,7 +193,69 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\MainForm.Designer.cs",
+              "ViewState": "AgIAACkBAAAAAAAAAAAAADkBAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T10:17:46.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "ViewState": "AgIAAN4BAAAAAAAAAAAkwPEBAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T10:42:30.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MessageFormats.cs",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\JSON\\MessageFormats.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\JSON\\MessageFormats.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\JSON\\MessageFormats.cs",
+              "RelativeToolTip": "Rtos_Comm\\application\\JSON\\MessageFormats.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAjwGYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T08:12:50.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs [Design]",
+              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T10:12:05.793Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GaugeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\GaugeForm.cs",
+              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\GaugeForm.cs",
+              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\GaugeForm.cs [Design]",
+              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\GaugeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T13:50:53.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Configuration_class.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Configuration\\Configuration_class.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\Configuration\\Configuration_class.cs",
@@ -246,20 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BatteryState.cs",
-              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\BatteryState.cs",
-              "RelativeDocumentMoniker": "Rtos_Comm\\application\\BMS\\BatteryState.cs",
-              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\BMS\\BatteryState.cs",
-              "RelativeToolTip": "Rtos_Comm\\application\\BMS\\BatteryState.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T12:01:15.803Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Json_Class.cs",
               "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\JSON\\Json_Class.cs",
               "RelativeDocumentMoniker": "Rtos_Comm\\application\\JSON\\Json_Class.cs",
@@ -280,18 +288,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-08T06:14:14.048Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MainForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs",
-              "RelativeDocumentMoniker": "Rtos_Comm\\application\\Forms\\MainForm.cs",
-              "ToolTip": "C:\\Users\\GOKHANAKK\\Documents\\Visual Studio 2022\\Projects\\Rtos_Comm\\Rtos_Comm\\application\\Forms\\MainForm.cs [Design]",
-              "RelativeToolTip": "Rtos_Comm\\application\\Forms\\MainForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T10:12:05.793Z",
-              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
