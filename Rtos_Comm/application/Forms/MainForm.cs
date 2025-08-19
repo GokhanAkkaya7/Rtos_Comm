@@ -363,8 +363,19 @@ namespace Rtos_Comm
                                 UpdateRtcLabel(rtcData);
                             }
                         }
-                        // Add here the other received drivers if conditions.
                     }
+
+                    if ((null != message_format) && ("can" == message_format.driver))
+                    {
+                        string jsonData = System.Text.Json.JsonSerializer.Serialize(message_format.data);
+                        CanData canData = System.Text.Json.JsonSerializer.Deserialize<CanData>(jsonData);
+
+                        if (canData != null)
+                        {
+
+                        }
+                    }
+                    // Add here the other received drivers if conditions.
                 }
             }
             catch (Exception ex)
@@ -494,7 +505,8 @@ namespace Rtos_Comm
 
         private void IRQSelectCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (IRQSelectCombo.SelectedItem == null) return;
+            if (IRQSelectCombo.SelectedItem == null) 
+                return;
             string selectedItem = IRQSelectCombo.SelectedItem.ToString();
 
             if (selectedItem == default_string)
@@ -518,7 +530,8 @@ namespace Rtos_Comm
 
         private void IRQButton_Click(object sender, EventArgs e)
         {
-            b_release_irq_message = true;
+            if (IRQBox.Text != "")
+                b_release_irq_message = true;
         }
         private void sendButton_Click(object sender, EventArgs e)
         {
