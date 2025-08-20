@@ -12,11 +12,16 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;      
+using System.Drawing;       
 
 namespace Rtos_Comm
 {
     public partial class MainForm : Form
     {
+        private Process _cProcess;
+        private static readonly string _logFilePath = Path.Combine(Application.StartupPath, "csharp_log.txt");
+
         private string default_string = "Channels (Default)";
         private Int32 adc_min_value = 0;
         private Int32 adc_max_value = 0;
@@ -63,7 +68,11 @@ namespace Rtos_Comm
 
         public MainForm()
         {
+            Log("MainForm starting...");
+
             InitializeComponent();
+            this.FormClosing += MainForm_FormClosing;
+
             _pipeClient = new PipeClient(Pipe_Name);
             _json_Class = new Json_Class();
 
@@ -77,6 +86,73 @@ namespace Rtos_Comm
 
             _xml_parser = new XML_Parser();
 
+        }
+        public static void Log(string message)
+        {
+            try
+            {
+                Debug.WriteLine(message);
+                File.AppendAllText(_logFilePath, $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} - {message}\n");
+            }
+            catch {  }
+        }
+        private void btnStartSimulation_Click(object sender, EventArgs e)
+        {
+            if (_cProcess != null && !_cProcess.HasExited) return;
+
+            try
+            {
+                string cExeName = "Battery_Simulator.exe";
+                string cExePath = Path.Combine(Application.StartupPath, cExeName);
+
+                if (!File.Exists(cExePath))
+                {
+                    MessageBox.Show($"C simulation executable not found at:\n{cExePath}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                ProcessStartInfo startInfo = new ProcessStartInfo(cExePath);
+                startInfo.WorkingDirectory = Path.GetDirectoryName(cExePath);
+
+                _cProcess = Process.Start(startInfo);
+
+                this.btnStartSimulation.Enabled = false;
+                this.btnStartSimulation.Visible = true;
+
+                this.btnLoadXml.Visible = true;
+                this.btnLoadXml.Enabled = true;
+
+                lblXmlStatus.Text = "C Simulation is running. Ready to connect.";
+                lblXmlStatus.ForeColor = Color.DarkGreen;
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                if (ex.NativeErrorCode == 1223)
+                {
+                    MessageBox.Show("C simulation could not be started because administrator permission was denied.", "Operation Canceled", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else { throw; }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to start C simulation:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Be sure that the background console process (e-Bike Simulator [C]) is closed.
+            try
+            {
+                if (_cProcess != null && !_cProcess.HasExited)
+                {
+                    _cProcess.Kill();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Failed to kill C process on exit: {ex.Message}");
+            }
         }
 
         private void list_filler(string s_type, object obj_value)
@@ -311,7 +387,7 @@ namespace Rtos_Comm
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine($"ConsumerLoopAsync/Send Error: {ex.Message}");
+                    Log($"!!! ConsumerLoopAsync/Send Error: {ex.Message}");
                 }
             }
         }
@@ -641,6 +717,26 @@ namespace Rtos_Comm
                     }
                 }
             }
+
+            this.Connect_Button.Visible = true;
+            this.Disconnect_Button.Visible = true;
+            this.CANButton.Visible = true;
+            this.SPIButton.Visible = true;
+            this.I2CButton.Visible = true;
+            this.FlashButton.Visible = true;
+            this.MonitorButton.Visible = true;
+            this.GaugeButton.Visible = true;
+
+            this.ADCButton.Visible = true;
+            this.IOButton.Visible = true;
+            this.IRQButton.Visible = true;
+            this.GPTButton.Visible = true;
+            this.btnRtcSet.Visible = true;
+            this.btnRtcGet.Visible = true;
+            this.btnRtcSync.Visible = true;
+
+            this.Connect_Button.Enabled = true;
+            this.Disconnect_Button.Enabled = true;
         }
 
         private void GaugeButton_Click(object sender, EventArgs e)

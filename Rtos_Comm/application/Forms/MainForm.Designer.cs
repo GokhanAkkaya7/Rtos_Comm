@@ -151,16 +151,21 @@ namespace Rtos_Comm
             var connectionTlp = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
-                ColumnCount = 4,
+                ColumnCount = 5,
                 RowCount = 1,
                 AutoSize = true
             };
-            connectionTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 180F));
-            connectionTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            connectionTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
-            connectionTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            connectionTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 180F)); // Start Sim
+            connectionTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));  // Status Label
+            connectionTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F)); // Connect
+            connectionTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F)); // Disconnect
+            connectionTlp.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F)); // Browse XML
             connectionTlp.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             groupBoxConnection.Controls.Add(connectionTlp);
+
+            this.btnStartSimulation = CreateStyledRoundButton("Start Simulation", Color.FromArgb(0, 123, 255), Color.White);
+            this.btnStartSimulation.Click += this.btnStartSimulation_Click;
+            this.btnStartSimulation.Dock = DockStyle.Fill;
 
             // CONNECTION CONTROLS
             this.btnLoadXml = CreateStyledRoundButton("Browse Configuration...", Color.FromArgb(108, 117, 125), Color.White);
@@ -187,10 +192,11 @@ namespace Rtos_Comm
             this.Disconnect_Button.Dock = DockStyle.Fill;
             this.Disconnect_Button.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
 
-            connectionTlp.Controls.Add(this.btnLoadXml, 0, 0);
+            connectionTlp.Controls.Add(this.btnStartSimulation, 0, 0);
             connectionTlp.Controls.Add(this.lblXmlStatus, 1, 0);
             connectionTlp.Controls.Add(this.Connect_Button, 2, 0);
             connectionTlp.Controls.Add(this.Disconnect_Button, 3, 0);
+            connectionTlp.Controls.Add(this.btnLoadXml, 4, 0);
 
             // MAIN CONTENT AREA
             var contentTlp = new TableLayoutPanel
@@ -397,6 +403,28 @@ namespace Rtos_Comm
             dataTlp.Controls.Add(CreateStyledInputPanel(this.GPTSelectCombo, Color.Gainsboro, Color.DodgerBlue), 3, 4);
 
             this.ResumeLayout(false);
+
+
+            /* --- Inıitial Cases of the Buttons --- */
+
+            this.btnLoadXml.Visible = false;
+            this.Connect_Button.Visible = false;
+            this.Disconnect_Button.Visible = false;
+            this.CANButton.Visible = false;
+            this.SPIButton.Visible = false;
+            this.I2CButton.Visible = false;
+            this.FlashButton.Visible = false;
+            this.MonitorButton.Visible = false;
+            this.GaugeButton.Visible = false;
+            this.ADCButton.Visible = false;
+            this.IOButton.Visible = false;
+            this.IRQButton.Visible = false;
+            this.GPTButton.Visible = false;
+
+            this.btnRtcSet.Visible = false;
+            this.btnRtcGet.Visible = false;
+            this.btnRtcSync.Visible = false;
+
         }
 
         #endregion
@@ -407,7 +435,7 @@ namespace Rtos_Comm
         private TextBox ADCMinBox, ADCMaxBox, IOBox, IRQBox, GPTBox;
         private ComboBox ADCSelectCombo, IRQSelectCombo, GPTSelectCombo, SendInterval;
         private RoundButton ADCButton, IOButton, IRQButton, GPTButton;
-        private RoundButton Connect_Button, Disconnect_Button, btnLoadXml;
+        private RoundButton Connect_Button, Disconnect_Button, btnLoadXml, btnStartSimulation;
         private RoundButton CANButton, SPIButton, I2CButton, FlashButton, MonitorButton;
         private RoundButton GaugeButton;
         private Label lblXmlStatus;
@@ -513,8 +541,8 @@ namespace Rtos_Comm
                 if (flashForm != null && !flashForm.IsDisposed) { flashForm.Activate(); return; }
                 using (OpenFileDialog ofd = new OpenFileDialog())
                 {
-                    ofd.Title = "Select Internal Data Flash File (dataflash.bin)";
-                    ofd.Filter = "Binary Files (*.bin)|*.bin|All files (*.*)|*.*";
+                    ofd.Title = "Select Internal Data Flash File (dataflash.txt)";
+                    ofd.Filter = "Binary Files (*.txt)|*.txt|All files (*.*)|*.*";
                     ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                     if (ofd.ShowDialog() == DialogResult.OK)
                     {
@@ -593,8 +621,8 @@ namespace Rtos_Comm
             if (spiFlashForm != null && !spiFlashForm.IsDisposed) { spiFlashForm.Activate(); return; }
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Title = "Select External SPI Flash File (externalflash.bin)";
-                ofd.Filter = "Binary Files (*.bin)|*.bin|All files (*.*)|*.*";
+                ofd.Title = "Select External SPI Flash File (externalflash.txt)";
+                ofd.Filter = "Binary Files (*.txt)|*.txt|All files (*.*)|*.*";
                 ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
