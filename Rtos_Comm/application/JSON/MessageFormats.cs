@@ -97,13 +97,13 @@ namespace Rtos_Comm.application.JSON
         public ushort cycle_count { get; set; }
 
         // CATEGORY 2: STATUS BLOCKS
-        public byte[] safety_status { get; set; }
-        public byte[] charging_status { get; set; }
-        public byte[] operation_status { get; set; }
-        public byte[] gauging_status { get; set; }
-        public byte[] battery_status { get; set; }
-        public byte[] manufacturing_status { get; set; }
-        public byte[] pf_status { get; set; }
+        public uint safety_status { get; set; }
+        public ushort charging_status { get; set; }
+        public uint operation_status { get; set; }
+        public ushort gauging_status { get; set; }
+        public ushort battery_status { get; set; }
+        public ushort manufacturing_status { get; set; }
+        public uint pf_status { get; set; }
 
         // CATEGORY 3: STRING AND INFO BLOCKS
         public string manufacturer_name { get; set; }

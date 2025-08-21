@@ -19,11 +19,14 @@ namespace Rtos_Comm
         private Label lblPackVoltage, lblCurrent, lblPackTemp, lblStatus;
         private Label[] lblCellVoltages = new Label[10];
         private RadioButton rbModeIdle, rbModeCharging, rbModeDischarging;
-        private ComboBox cmbSelectedCell;
+        private ComboBox cmbSelectedCell, _cmbStatusSelect;
         private Label lblSelectedCellValue;
         private StatusLed _ledCuv, _ledCov, _ledOcd, _ledOcc, _ledOtd, _ledUtc;
         private NumericUpDown _numSoC;
         private NumericUpDown _numSoH;
+
+        private GroupBox _gbStatusFlags;
+        private CheckedListBox _clbStatusBits;
 
         // --- Color Palette ---
         private readonly Color _background = Color.FromArgb(24, 24, 27);
@@ -163,6 +166,30 @@ namespace Rtos_Comm
             controlTlp.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));  // Cell Selection
             controlTlp.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));  // Cell Slider
             controlTlp.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));  // Spacer
+
+            _gbStatusFlags = new GroupBox
+            {
+                Text = "Manual Status Flag Control",
+                Dock = DockStyle.Fill,
+                Padding = new Padding(10),
+                Margin = new Padding(0, 15, 0, 0),
+                Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+                ForeColor = _textSecondary
+            };
+
+            controlTlp.RowStyles[controlTlp.RowStyles.Count - 1] = new RowStyle(SizeType.AutoSize);
+            controlTlp.Controls.Add(_gbStatusFlags, 0, controlTlp.RowCount - 1);
+
+            var flagsTlp = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 1, RowCount = 2, Height = 150 };
+            flagsTlp.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            flagsTlp.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _gbStatusFlags.Controls.Add(flagsTlp);
+
+            _cmbStatusSelect = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList, Dock = DockStyle.Top };
+            _clbStatusBits = new CheckedListBox { Dock = DockStyle.Fill, BackColor = _panelBackground, ForeColor = _textPrimary, BorderStyle = BorderStyle.None };
+
+            flagsTlp.Controls.Add(_cmbStatusSelect, 0, 0);
+            flagsTlp.Controls.Add(_clbStatusBits, 0, 1);
 
             // --- Helper function for creating rows ---
             var createRow = new Func<string, Control, FlowLayoutPanel>((labelText, control) =>
@@ -344,15 +371,22 @@ namespace Rtos_Comm
             }
 
             _lastKnownState = state;
+            UpdateCheckedListBoxFromState();
 
             UpdateGaugeData(
-                    state.PackVoltage_V,
-                    state.Current_A,
-                    state.SoC,
-                    state.SoH,
-                    state.CellVoltages_V,
-                    state.Temperature_C
-                );
+                state.PackVoltage_V,
+                state.Current_A,
+                state.SoC,
+                state.SoH,
+                state.CellVoltages_V,
+                state.Temperature_C
+            );
+        }
+
+        private void UpdateCheckedListBoxFromState()
+        {
+            if (_simulator == null || _cmbStatusSelect.SelectedItem == null) return;
+            OnStatusRegisterSelected(this, EventArgs.Empty);
         }
 
         private void InitializeEventHandlers()
@@ -364,6 +398,10 @@ namespace Rtos_Comm
             cmbSelectedCell.SelectedIndexChanged += OnSelectedCellChanged;
             _numSoC.ValueChanged += (s, e) => _simulator.SetSoC((int)_numSoC.Value);
             _numSoH.ValueChanged += (s, e) => _simulator.SetSoH((int)_numSoH.Value);
+            _cmbStatusSelect.SelectedIndexChanged += OnStatusRegisterSelected;
+            _clbStatusBits.ItemCheck += OnStatusBitChanged;
+
+            PopulateStatusSelector();
 
             tbCellVoltage.ValueChanged += OnIndividualCellSliderChanged;
 
@@ -373,7 +411,115 @@ namespace Rtos_Comm
             _simulator.SetSoC((int)_numSoC.Value);
             _simulator.SetSoH((int)_numSoH.Value);
         }
+        private void PopulateStatusSelector()
+        {
+            _cmbStatusSelect.Items.Clear();
+            _cmbStatusSelect.Items.Add("Safety Status");
+            _cmbStatusSelect.Items.Add("Charging Status");
+            _cmbStatusSelect.Items.Add("Operation Status");
+            _cmbStatusSelect.Items.Add("Gauging Status");
+            _cmbStatusSelect.Items.Add("Battery Status");
+            _cmbStatusSelect.Items.Add("Manufacturing Status");
+            _cmbStatusSelect.Items.Add("PF Status");
+            _cmbStatusSelect.SelectedIndex = 0;
+        }
 
+        private void OnStatusRegisterSelected(object sender, EventArgs e)
+        {
+            if (_simulator == null || _cmbStatusSelect.SelectedItem == null) return;
+
+            _clbStatusBits.ItemCheck -= OnStatusBitChanged;
+
+            _clbStatusBits.Items.Clear();
+            string selected = _cmbStatusSelect.SelectedItem.ToString();
+
+            var currentRegs = _simulator.CurrentState.BmsRegisters;
+
+            Type enumType = null;
+            ulong currentFlags = 0;
+
+            if (selected == "Safety Status") { enumType = typeof(SafetyStatus); currentFlags = currentRegs.safety_status; }
+            else if (selected == "Charging Status") { enumType = typeof(ChargingStatus); currentFlags = currentRegs.charging_status; }
+            else if (selected == "Operation Status") { enumType = typeof(OperationStatus); currentFlags = currentRegs.operation_status; }
+            else if (selected == "Gauging Status") { enumType = typeof(GaugingStatus); currentFlags = currentRegs.gauging_status; }
+            else if (selected == "Battery Status") { enumType = typeof(BatteryStatus); currentFlags = currentRegs.battery_status; }
+            else if (selected == "Manufacturing Status") { enumType = typeof(ManufacturingStatus); currentFlags = currentRegs.manufacturing_status; }
+            else if (selected == "PF Status") { enumType = typeof(PFStatus); currentFlags = currentRegs.pf_status; }
+
+            if (enumType != null)
+            {
+                foreach (var name in Enum.GetNames(enumType))
+                {
+                    if (name == "None")
+                        continue;
+
+                    var flagValue = (ulong)Convert.ChangeType(Enum.Parse(enumType, name), typeof(ulong));
+
+                    bool isChecked = (currentFlags & flagValue) == flagValue;
+
+                    _clbStatusBits.Items.Add(name, isChecked);
+                }
+            }
+
+            _clbStatusBits.ItemCheck += OnStatusBitChanged;
+        }
+
+        private void OnStatusBitChanged(object sender, ItemCheckEventArgs e)
+        {
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                string selectedRegister = _cmbStatusSelect.SelectedItem.ToString();
+                ulong flags = 0;
+
+                foreach (var item in _clbStatusBits.CheckedItems)
+                {
+                    try
+                    {
+                        if (selectedRegister == "Safety Status")
+                        {
+                            SafetyStatus flag = (SafetyStatus)Enum.Parse(typeof(SafetyStatus), item.ToString());
+                            flags |= (uint)flag;
+                        }
+                        else if (selectedRegister == "Charging Status")
+                        {
+                            ChargingStatus flag = (ChargingStatus)Enum.Parse(typeof(ChargingStatus), item.ToString());
+                            flags |= (ushort)flag;
+                        }
+                        else if (selectedRegister == "Operation Status")
+                        {
+                            OperationStatus flag = (OperationStatus)Enum.Parse(typeof(OperationStatus), item.ToString());
+                            flags |= (uint)flag;
+                        }
+                        else if (selectedRegister == "Gauging Status")
+                        {
+                            GaugingStatus flag = (GaugingStatus)Enum.Parse(typeof(GaugingStatus), item.ToString());
+                            flags |= (uint)flag;
+                        }
+                        else if (selectedRegister == "Battery Status")
+                        {
+                            BatteryStatus flag = (BatteryStatus)Enum.Parse(typeof(BatteryStatus), item.ToString());
+                            flags |= (uint)flag;
+                        }
+                        else if (selectedRegister == "Manufacturing Status")
+                        {
+                            ManufacturingStatus flag = (ManufacturingStatus)Enum.Parse(typeof(ManufacturingStatus), item.ToString());
+                            flags |= (uint)flag;
+                        }
+                        else if (selectedRegister == "PF Status")
+                        {
+                            PFStatus flag = (PFStatus)Enum.Parse(typeof(PFStatus), item.ToString());
+                            flags |= (uint)flag;
+                        }
+                    }
+                    catch (ArgumentException)
+                    {
+                        continue;
+                    }
+                }
+
+                _simulator.SetStatusFlags(selectedRegister, flags);
+            });
+        }
         private void OnSelectedCellChanged(object sender, EventArgs e)
         {
             if (_lastKnownState == null) return;
@@ -412,12 +558,12 @@ namespace Rtos_Comm
             }
 
             string status;
-            if (current > 0.05) 
-                status = "CHARGING"; 
-            else if (current < -0.05) 
+            if (current > 0.05)
+                status = "CHARGING";
+            else if (current < -0.05)
                 status = "DISCHARGING";
-            else 
-                status = "IDLE"; 
+            else
+                status = "IDLE";
 
             lblStatus.Text = status;
             switch (status)
@@ -488,16 +634,14 @@ namespace Rtos_Comm
 
             if (_lastKnownState?.BmsRegisters != null)
             {
-                if (_lastKnownState.BmsRegisters.safety_status != null)
-                {
-                    var safetyFlags = (SafetyStatusFlags)BitConverter.ToUInt32(_lastKnownState.BmsRegisters.safety_status, 0);
-                    _ledCov.Active = safetyFlags.HasFlag(SafetyStatusFlags.COV);
-                    _ledCuv.Active = safetyFlags.HasFlag(SafetyStatusFlags.CUV);
-                    _ledOcd.Active = safetyFlags.HasFlag(SafetyStatusFlags.OCD);
-                    _ledOcc.Active = safetyFlags.HasFlag(SafetyStatusFlags.OCC);
-                    _ledOtd.Active = safetyFlags.HasFlag(SafetyStatusFlags.OTD);
-                    _ledUtc.Active = safetyFlags.HasFlag(SafetyStatusFlags.UTC);
-                }
+                var safetyFlags = (SafetyStatus)_lastKnownState.BmsRegisters.safety_status;
+                _ledCov.Active = safetyFlags.HasFlag(SafetyStatus.COV);
+                _ledCuv.Active = safetyFlags.HasFlag(SafetyStatus.CUV);
+                _ledOcd.Active = safetyFlags.HasFlag(SafetyStatus.OCD);
+                _ledOcc.Active = safetyFlags.HasFlag(SafetyStatus.OCC);
+                _ledOtd.Active = safetyFlags.HasFlag(SafetyStatus.OTD);
+                _ledUtc.Active = safetyFlags.HasFlag(SafetyStatus.UTC);
+
             }
         }
     }

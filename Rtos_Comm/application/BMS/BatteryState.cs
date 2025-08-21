@@ -15,6 +15,7 @@ namespace Rtos_Comm
         public int SoC { get; set; }
         public int SoH { get; set; }
         public float[] CellVoltages_V { get; set; }
+        public string Status { get; set; }
 
         // This object holds all the detailed register data to be sent over the pipe.
         public BMSData BmsRegisters { get; set; }

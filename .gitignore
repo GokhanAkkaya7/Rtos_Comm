@@ -77,6 +77,4 @@ TestResults/
 *.scc
 *.err
 *.tmp
-*.txt
 *.obj
-*.exe
