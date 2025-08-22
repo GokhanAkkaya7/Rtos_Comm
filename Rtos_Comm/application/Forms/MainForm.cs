@@ -535,6 +535,23 @@ namespace Rtos_Comm
 
                 Disconnect_Button.Enabled = true;
                 Console.WriteLine("Pipe connected and all tasks started.");
+
+                this.Disconnect_Button.Visible = true;
+                this.CANButton.Visible = true;
+                this.SPIButton.Visible = true;
+                this.I2CButton.Visible = true;
+                this.FlashButton.Visible = true;
+                this.MonitorButton.Visible = true;
+                this.GaugeButton.Visible = true;
+
+                this.Disconnect_Button.Enabled = true;
+                this.ADCButton.Visible = true;
+                this.IOButton.Visible = true;
+                this.IRQButton.Visible = true;
+                this.GPTButton.Visible = true;
+                this.btnRtcSet.Visible = true;
+                this.btnRtcGet.Visible = true;
+                this.btnRtcSync.Visible = true;
             }
             else
             {
@@ -710,6 +727,9 @@ namespace Rtos_Comm
                             _gpt_data.Unit[gpt_index] = allgpts[gpt_index].Unit;
                             b_gpt_set = true;
                         }
+
+                        this.Connect_Button.Visible = true;
+                        this.Connect_Button.Enabled = true;
                     }
                     catch (Exception ex)
                     {
@@ -717,26 +737,6 @@ namespace Rtos_Comm
                     }
                 }
             }
-
-            this.Connect_Button.Visible = true;
-            this.Disconnect_Button.Visible = true;
-            this.CANButton.Visible = true;
-            this.SPIButton.Visible = true;
-            this.I2CButton.Visible = true;
-            this.FlashButton.Visible = true;
-            this.MonitorButton.Visible = true;
-            this.GaugeButton.Visible = true;
-
-            this.ADCButton.Visible = true;
-            this.IOButton.Visible = true;
-            this.IRQButton.Visible = true;
-            this.GPTButton.Visible = true;
-            this.btnRtcSet.Visible = true;
-            this.btnRtcGet.Visible = true;
-            this.btnRtcSync.Visible = true;
-
-            this.Connect_Button.Enabled = true;
-            this.Disconnect_Button.Enabled = true;
         }
 
         private void GaugeButton_Click(object sender, EventArgs e)

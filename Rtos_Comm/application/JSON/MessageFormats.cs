@@ -164,39 +164,4 @@ namespace Rtos_Comm.application.JSON
     }
 
     #endregion
-    public class BmsConfigData
-    {
-        // --- Cell Voltage Protections ---
-        public ushort CuvThreshold { get; set; } = 2800;    // Cell Undervoltage Threshold (mV)
-        public ushort CuvRecovery { get; set; } = 3100;     // Cell Undervoltage Recovery (mV)
-        public ushort CovThreshold { get; set; } = 4280;    // Cell Overvoltage Threshold (mV)
-        public ushort CovRecovery { get; set; } = 4150;     // Cell Overvoltage Recovery (mV)
-
-        // --- Current Protections ---
-        public short OccThreshold { get; set; } = 5000;     // Overcurrent in Charge Threshold (mA)
-        public short OccRecovery { get; set; } = 4500;      // Overcurrent in Charge Recovery (mA)
-        public short OcdThreshold { get; set; } = -7000;    // Overcurrent in Discharge Threshold (mA)
-        public short OcdRecovery { get; set; } = -6500;     // Overcurrent in Discharge Recovery (mA)
-
-        // --- Temperature Protections (Charge) ---
-        // Values are in 0.1 Kelvin. To convert from Celsius: (Celsius + 273.15) * 10
-        public short UtcThreshold { get; set; } = 2731;     // Undertemperature for Charge Threshold (~0°C)
-        public short UtcRecovery { get; set; } = 2781;      // Undertemperature for Charge Recovery (~5°C)
-        public short OtcThreshold { get; set; } = 3281;     // Overtemperature for Charge Threshold (~55°C)
-        public short OtcRecovery { get; set; } = 3231;      // Overtemperature for Charge Recovery (~50°C)
-
-        // --- Temperature Protections (Discharge) ---
-        public short UtdThreshold { get; set; } = 2531;     // Undertemperature for Discharge Threshold (~-20°C)
-        public short UtdRecovery { get; set; } = 2581;      // Undertemperature for Discharge Recovery (~-15°C)
-        public short OtdThreshold { get; set; } = 3331;     // Overtemperature for Discharge Threshold (~60°C)
-        public short OtdRecovery { get; set; } = 3281;      // Overtemperature for Discharge Recovery (~55°C)
-
-        // --- FET Temperature Protection ---
-        public short OtfThreshold { get; set; } = 3581;     // Overtemperature for FET Threshold (~85°C)
-        public short OtfRecovery { get; set; } = 3531;      // Overtemperature for FET Recovery (~80°C)
-
-        // --- Other Configurations ---
-        public byte CurrentDeadband { get; set; } = 5;       // mA
-    }
-
 }

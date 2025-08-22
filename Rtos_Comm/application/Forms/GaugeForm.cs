@@ -232,11 +232,11 @@ namespace Rtos_Comm
             controlTlp.Controls.Add(createRow("Simulation Mode", modePanel), 0, 0);
 
             // Row 1: Set Current
-            tbCurrent = CreateSlider(-10000, 10000, 0);
+            tbCurrent = CreateSlider(-50000, 50000, 0);
             controlTlp.Controls.Add(createRow("Set Current (mA)", tbCurrent), 0, 1);
 
             // Row 2: Set Pack Temp
-            tbPackTemp = CreateSlider(-20, 80, 25);
+            tbPackTemp = CreateSlider(-80, 80, 25);
             controlTlp.Controls.Add(createRow("Set Pack Temp (°C)", tbPackTemp), 0, 2);
 
             // Row 3: Set SoC

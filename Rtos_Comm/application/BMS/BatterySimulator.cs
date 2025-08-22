@@ -69,10 +69,10 @@ public class BatterySimulator : IDisposable
 
         var regs = _currentState.BmsRegisters;
 
-        regs.cuv_threshold = 2800;
-        regs.cuv_recovery = 3100;
+        regs.cuv_threshold = 2900;
+        regs.cuv_recovery = 3200;
         regs.cov_threshold = 4280;
-        regs.cov_recovery = 4150;
+        regs.cov_recovery = 4100;
         regs.occ_threshold = 5000;
         regs.occ_recovery = 4500;
         regs.ocd_threshold = -7000;
@@ -81,9 +81,9 @@ public class BatterySimulator : IDisposable
         regs.utc_recovery = 2781;
         regs.otc_threshold = 3281;
         regs.otc_recovery = 3231;
-        regs.utd_threshold = 2531;
+        regs.utd_threshold = 2631;
         regs.utd_recovery = 2581;
-        regs.otd_threshold = 3331;
+        regs.otd_threshold = 3421;
         regs.otd_recovery = 3281;
         regs.otf_threshold = 3581;
         regs.otf_recovery = 3531;
@@ -197,7 +197,7 @@ public class BatterySimulator : IDisposable
         GaugingStatus autoGaugingFlags = CalculateGaugingFlags();
         BatteryStatus autoBatteryStatus = CalculateBatteryStatus();
         OperationStatus autoOperationFlags = CalculateOperationStatus(autoSafetyFlags);
-        ManufacturingStatus autoManuFlags = CalculateManufacturingStatus();
+        ManufacturingStatus autoManuFlags = CalculateManufacturingStatus(autoSafetyFlags);
         PFStatus autoPfFlags = CalculatePfStatus();
 
         // --- 3. Combine Automatic Flags with Manual Overrides ---
@@ -227,14 +227,14 @@ public class BatterySimulator : IDisposable
     // --- Helper methods for calculating flags ---
     private SafetyStatus CalculateSafetyFlags()
     {
-        var config = _currentState.BmsRegisters;
+        var regs = _currentState.BmsRegisters;
         SafetyStatus flags = SafetyStatus.None;
-        if (_currentState.CellVoltages_V.Any(v => v > config.cov_threshold / 1000.0f)) flags |= SafetyStatus.COV;
-        if (_currentState.CellVoltages_V.Any(v => v < config.cuv_threshold / 1000.0f)) flags |= SafetyStatus.CUV;
-        if (_currentState.Current_A * 1000 > config.occ_threshold) flags |= SafetyStatus.OCC;
-        if (_currentState.Current_A * 1000 < config.ocd_threshold) flags |= SafetyStatus.OCD;
-        if (_currentState.Current_A * 1000 < config.ocd_threshold * 1.5) flags |= SafetyStatus.AOLD;
-        if (_currentState.Current_A * 1000 < config.ocd_threshold * 2.0) flags |= SafetyStatus.ASCD;
+        if (_currentState.CellVoltages_V.Any(v => v > regs.cov_threshold / 1000.0f)) flags |= SafetyStatus.COV;
+        if (_currentState.CellVoltages_V.Any(v => v < regs.cuv_threshold / 1000.0f)) flags |= SafetyStatus.CUV;
+        if (_currentState.Current_A * 1000 > regs.occ_threshold) flags |= SafetyStatus.OCC;
+        if (_currentState.Current_A * 1000 < regs.ocd_threshold) flags |= SafetyStatus.OCD;
+        if (_currentState.Current_A * 1000 < regs.ocd_threshold * 1.5) flags |= SafetyStatus.AOLD;
+        if (_currentState.Current_A * 1000 < regs.ocd_threshold * 2.0) flags |= SafetyStatus.ASCD;
         if (_currentState.Current_A > 0 && _currentState.Temperature_C > (_currentState.BmsRegisters.otc_threshold - 2731.5) / 10.0) flags |= SafetyStatus.OTC;
         if (_currentState.Current_A < 0 && _currentState.Temperature_C > (_currentState.BmsRegisters.otd_threshold - 2731.5) / 10.0) flags |= SafetyStatus.OTD;
         if (_currentState.Current_A > 0 && _currentState.Temperature_C < (_currentState.BmsRegisters.utc_threshold - 2731.5) / 10.0) flags |= SafetyStatus.UTC;
@@ -245,12 +245,12 @@ public class BatterySimulator : IDisposable
 
     private ChargingStatus CalculateChargingFlags(SafetyStatus currentSafetyFlags)
     {
-        var config = _currentState.BmsRegisters;
+        var regs = _currentState.BmsRegisters;
         ChargingStatus flags = ChargingStatus.None;
         if (_currentState.Current_A > 0.05)
         {
-            if (_currentState.Temperature_C < (config.utc_threshold - 2731.5) / 10.0) flags |= ChargingStatus.UT;
-            else if (_currentState.Temperature_C > (config.otc_threshold - 2731.5) / 10.0) flags |= ChargingStatus.OT;
+            if (_currentState.Temperature_C < (regs.utc_threshold - 2731.5) / 10.0) flags |= ChargingStatus.UT;
+            else if (_currentState.Temperature_C > (regs.otc_threshold - 2731.5) / 10.0) flags |= ChargingStatus.OT;
             else if (_currentState.Temperature_C < 10) flags |= ChargingStatus.LT;
             else if (_currentState.Temperature_C > 45) flags |= ChargingStatus.HT;
             else flags |= ChargingStatus.ST;
@@ -281,17 +281,28 @@ public class BatterySimulator : IDisposable
     private OperationStatus CalculateOperationStatus(SafetyStatus currentSafetyFlags)
     {
         OperationStatus flags = OperationStatus.PRES | OperationStatus.INIT | OperationStatus.XCHG | OperationStatus.XDSG;
-        bool isSafetyErrorActive = (currentSafetyFlags & (SafetyStatus.COV | SafetyStatus.CUV | SafetyStatus.OCD | SafetyStatus.OTC | SafetyStatus.OTD | SafetyStatus.UTC | SafetyStatus.UTD | SafetyStatus.OTF)) != 0;
+        bool isSafetyErrorActive = (currentSafetyFlags & (SafetyStatus.COV | SafetyStatus.CUV | SafetyStatus.OCD | SafetyStatus.OTC | SafetyStatus.OTD
+            | SafetyStatus.UTC | SafetyStatus.UTD | SafetyStatus.OTF)) != 0;
         if (!isSafetyErrorActive)
         {
-            flags |= OperationStatus.DSG | OperationStatus.CHG;
+            if (_currentState.Current_A < -0.05) flags |= OperationStatus.DSG;
+            else if (_currentState.Current_A > 0.05) flags |= OperationStatus.CHG;
         }
         return flags;
     }
 
-    private ManufacturingStatus CalculateManufacturingStatus()
+    private ManufacturingStatus CalculateManufacturingStatus(SafetyStatus currentSafetyFlags)
     {
-        return ManufacturingStatus.FET_EN | ManufacturingStatus.PF_EN | ManufacturingStatus.SAFE_EN;
+        ManufacturingStatus flags = ManufacturingStatus.None;
+        bool isSafetyErrorActive = (currentSafetyFlags & (SafetyStatus.COV | SafetyStatus.CUV | SafetyStatus.OCD | SafetyStatus.OTC | SafetyStatus.OTD
+    | SafetyStatus.UTC | SafetyStatus.UTD | SafetyStatus.OTF)) != 0;
+
+        if (!isSafetyErrorActive)
+            flags |= ManufacturingStatus.FET_EN | ManufacturingStatus.SAFE_EN;
+        else
+            flags |= ManufacturingStatus.PF_EN;
+
+        return flags;
     }
 
     private PFStatus CalculatePfStatus()
